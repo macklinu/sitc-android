@@ -118,10 +118,12 @@
     <orderEntry type="library" exported="" scope="TEST" name="maven-artifact-2.2.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="maven-profile-2.2.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="support-v4-r7" level="project" />
+    <orderEntry type="library" exported="" name="spring-android-rest-template-1.0.1.RELEASE" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-util-4.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="maven-model-2.2.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="fest-util-1.2.5" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="ant-launcher-1.8.0" level="project" />
+    <orderEntry type="library" exported="" name="spring-android-core-1.0.1.RELEASE" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="plexus-interpolation-1.11" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="fest-reflect-1.4.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="maven-project-2.2.1" level="project" />

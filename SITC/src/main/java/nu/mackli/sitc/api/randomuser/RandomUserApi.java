@@ -1,12 +1,13 @@
-package nu.mackli.cards.api.randomuser;
+package nu.mackli.sitc.api.randomuser;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.rest.RestService;
 import org.springframework.web.client.HttpClientErrorException;
 
-import nu.mackli.cards.api.RestCallback;
-import nu.mackli.cards.models.randomuser.RandomUser;
+import nu.mackli.sitc.api.RestCallback;
+import nu.mackli.sitc.models.randomuser.RandomUser;
+
 
 /**
  * Created by macklinu on 12/15/13.

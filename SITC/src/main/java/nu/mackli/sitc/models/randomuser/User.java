@@ -1,24 +1,53 @@
 package nu.mackli.sitc.models.randomuser;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * Created by macklinu on 12/15/13.
  */
 public class User {
-
-    @SerializedName("user")
-    UserInfo info;
-
-    String seed;
-    String version;
+    Name name;
+    Location location;
+    String gender;
+    String email;
+    String password;
+    String phone;
+    String cell;
+    String picture;
 
     @Override
     public String toString() {
-        return info.toString();
+        return name.toString();
     }
 
-    public UserInfo getInfo() {
-        return info;
+    public Name getName() {
+        return name;
     }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getCell() {
+        return cell;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
 }

@@ -1,4 +1,4 @@
-package nu.mackli.cards.api;
+package nu.mackli.sitc.api;
 
 import org.springframework.web.client.HttpClientErrorException;
 

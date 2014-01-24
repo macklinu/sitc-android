@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * Created by macklinu on 12/15/13.
  */
 public class RandomUser {
-    ArrayList<User> results;
+    ArrayList<Results> results;
 
-    public ArrayList<User> getResults() {
+    public ArrayList<Results> getResults() {
         return results;
     }
 
-    public User getUser() {
+    public Results getUser() {
         return results.get(0);
     }
 

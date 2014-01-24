@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SITC</string>
+
+    <string name="actionNew">New</string>
+    <string name="actionSettings">Settings</string>
+    <string name="actionSearch">Search</string>
 </resources>

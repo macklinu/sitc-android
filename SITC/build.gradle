@@ -51,6 +51,8 @@ dependencies {
     // gson
     compile 'com.google.code.gson:gson:2.2.4'
 
+    compile group: 'org.springframework.android', name:'spring-android-rest-template', version:'1.0.1.RELEASE'
+
     // android annotations
     apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
     compile "org.androidannotations:androidannotations-api:${androidAnnotationsVersion}"
