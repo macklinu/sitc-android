@@ -4,6 +4,9 @@
     <string name="actionNew">New</string>
     <string name="actionSettings">Settings</string>
     <string name="actionSearch">Search</string>
+    <string name="paint">Paint</string>
+    <string name="plant">Plant</string>
+    <string name="play">Play</string>
 
     <string-array name="carpoolSites">
         <item>Bloomfield Hills</item>

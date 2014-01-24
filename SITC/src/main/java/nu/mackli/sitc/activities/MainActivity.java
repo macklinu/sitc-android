@@ -7,27 +7,18 @@ import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import nu.mackli.sitc.R;
-import nu.mackli.sitc.adapters.CustomArrayAdapter;
-import nu.mackli.sitc.api.randomuser.RandomUserApi;
 import nu.mackli.sitc.fragments.VolunteerListFragment;
 import nu.mackli.sitc.fragments.VolunteerListFragment_;
-import nu.mackli.sitc.views.ExpandableListItem;
-import nu.mackli.sitc.views.ExpandingListView;
 
 /**
  * Created by macklinu on 1/24/14.
  */
 @EActivity(R.layout.activity_main)
-@OptionsMenu(R.menu.main)
 public class MainActivity extends Activity implements ActionBar.OnNavigationListener {
 
     private SpinnerAdapter spinnerAdapter;
@@ -42,8 +33,6 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
             actionBar.setDisplayShowTitleEnabled(false);
             actionBar.setListNavigationCallbacks(spinnerAdapter, this);
         }
-
-        createFragment();
     }
 
     private void createFragment() {
@@ -53,24 +42,10 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
                 .commit();
     }
 
-    @OptionsItem
-    public void actionNew() {
-        // add person
-    }
-
-    @OptionsItem
-    public void actionSearch() {
-        // search for person
-    }
-
-    @OptionsItem
-    public void actionSettings() {
-        // open settings
-    }
-
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         // swap fragment
+        createFragment();
         return true;
     }
 }
