@@ -4,4 +4,10 @@
     <string name="actionNew">New</string>
     <string name="actionSettings">Settings</string>
     <string name="actionSearch">Search</string>
+
+    <string-array name="carpoolSites">
+        <item>Bloomfield Hills</item>
+        <item>Dearborn</item>
+        <item>Grosse Pointe</item>
+    </string-array>
 </resources>
