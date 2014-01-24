@@ -24,6 +24,6 @@ public class Name {
 
     @Override
     public String toString() {
-        return String.format("%s %s %s", title, first, last);
+        return String.format("%s %s", getFirst(), getLast());
     }
 }

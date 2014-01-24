@@ -5,12 +5,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <ListView
+    <nu.mackli.sitc.views.ExpandingListView
         android:id="@+id/volunteerList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:listSelector="@drawable/listview_background"
-        android:divider="@android:color/transparent"/>
+        android:divider="@android:color/holo_blue_light"
+        />
 
 </LinearLayout>

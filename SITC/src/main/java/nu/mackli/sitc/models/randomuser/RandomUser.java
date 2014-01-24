@@ -11,9 +11,4 @@ public class RandomUser {
     public ArrayList<Results> getResults() {
         return results;
     }
-
-    public Results getUser() {
-        return results.get(0);
-    }
-
 }

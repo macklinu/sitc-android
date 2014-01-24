@@ -5,6 +5,8 @@ import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.rest.RestService;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.ArrayList;
+
 import nu.mackli.sitc.api.RestCallback;
 import nu.mackli.sitc.models.randomuser.RandomUser;
 
@@ -18,9 +20,9 @@ public class RandomUserApi {
     RandomUserRestClient client;
 
     @Background
-    public void getRandomUser(RestCallback<RandomUser> callback) {
+    public void getRandomUsers(int number, RestCallback<RandomUser> callback) {
         try {
-            RandomUser user = client.getRandomUser();
+            RandomUser user = client.getRandomUsers(number);
             callback.onSuccess(user);
         } catch (HttpClientErrorException e) {
             callback.onError(e);

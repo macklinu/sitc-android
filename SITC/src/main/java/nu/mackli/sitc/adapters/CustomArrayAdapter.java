@@ -36,6 +36,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import nu.mackli.sitc.R;
@@ -83,12 +85,13 @@ public class CustomArrayAdapter extends ArrayAdapter<ExpandableListItem> {
 
         ImageView imgView = (ImageView)convertView.findViewById(R.id.image_view);
         TextView titleView = (TextView)convertView.findViewById(R.id.title_view);
-        TextView textView = (TextView)convertView.findViewById(R.id.text_view);
+        // TextView textView = (TextView)convertView.findViewById(R.id.text_view);
 
         titleView.setText(object.getTitle());
-        imgView.setImageBitmap(getCroppedBitmap(BitmapFactory.decodeResource(getContext()
-                .getResources(), object.getImgResource(), null)));
-        textView.setText(object.getText());
+        Picasso.with(getContext())
+                .load(object.getImgResource())
+                .into(imgView);
+        // textView.setText(object.getText());
 
         convertView.setLayoutParams(new ListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,
                 AbsListView.LayoutParams.WRAP_CONTENT));
