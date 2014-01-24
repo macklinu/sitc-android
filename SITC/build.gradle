@@ -55,6 +55,8 @@ dependencies {
     apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
     compile "org.androidannotations:androidannotations-api:${androidAnnotationsVersion}"
 
+    compile 'org.apache.commons:commons-lang3:3.1'
+
     // testing
     instrumentTestCompile 'org.robolectric:robolectric:2.2'
     instrumentTestCompile 'junit:junit:4.11'

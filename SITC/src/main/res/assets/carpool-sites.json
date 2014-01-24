@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Bloomfield Hills",
+    "address": {
+      "street": "1099 Lone Pine Rd",
+      "city": "Bloomfield Hills",
+      "state": "MI",
+      "zipcode": "48302"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Troy",
+    "address": {
+      "street": "4777 Northfield Pkwy",
+      "city": "Troy",
+      "state": "MI",
+      "zipcode": "48098"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Grosse Pointe",
+    "address": {
+      "street": "707 Vernier Rd",
+      "city": "Grosse Pointe Woods",
+      "state": "MI",
+      "zipcode": "48236"
+    }
+  }
+]
