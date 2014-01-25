@@ -5,6 +5,12 @@
       "last": "Underdown"
     },
     "age": 22,
-    "address"
+    "address": {
+      "street": "1739 Sainte Anne",
+      "city": "Detroit",
+      "state": "MI",
+      "zipcode": "48216"
+    },
+    "image": ""
   }
 ]

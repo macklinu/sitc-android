@@ -14,4 +14,7 @@ import nu.mackli.sitc.models.randomuser.RandomUser;
 public interface RandomUserRestClient {
     @Get("/?results={number}")
     RandomUser getRandomUsers(int number);
+
+    @Get("/?seed={seed}")
+    RandomUser getSeed(String seed);
 }

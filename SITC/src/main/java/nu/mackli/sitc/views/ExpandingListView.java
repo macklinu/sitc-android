@@ -24,13 +24,11 @@ import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,13 +65,6 @@ public class ExpandingListView extends ListView {
 
     private void init() {
         setOnItemClickListener(mItemClickListener);
-        setOnItemLongClickListener(new OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("testing", "long click works");
-                return false;
-            }
-        });
     }
 
     /**

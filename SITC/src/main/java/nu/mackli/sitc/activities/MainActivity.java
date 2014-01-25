@@ -8,8 +8,6 @@ import android.widget.SpinnerAdapter;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.OptionsItem;
-import org.androidannotations.annotations.OptionsMenu;
 
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.fragments.VolunteerListFragment;
@@ -26,13 +24,20 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
     @AfterViews
     public void afterViews() {
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.carpoolSites, android.R.layout.simple_spinner_dropdown_item);
+        setUpActionBar();
+    }
 
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-            actionBar.setDisplayShowTitleEnabled(false);
-            actionBar.setListNavigationCallbacks(spinnerAdapter, this);
-        }
+    /**
+     * Called when the Activity is first created
+     * @param itemPosition
+     * @param itemId
+     * @return
+     */
+    @Override
+    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+        // swap fragment
+        createFragment();
+        return true;
     }
 
     private void createFragment() {
@@ -42,10 +47,12 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
                 .commit();
     }
 
-    @Override
-    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-        // swap fragment
-        createFragment();
-        return true;
+    private void setUpActionBar() {
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setListNavigationCallbacks(spinnerAdapter, this);
+        }
     }
 }
