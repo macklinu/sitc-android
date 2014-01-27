@@ -4,22 +4,38 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:gravity="center">
+              android:gravity="bottom">
 
     <Button
         android:id="@+id/facebookButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/facebookBlue"
         android:textColor="@android:color/white"
-        android:text="@string/logInWithFacebook"/>
+        android:text="@string/signInWithFacebook"/>
 
     <Button
         android:id="@+id/twitterButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/twitterBlue"
         android:textColor="@android:color/white"
-        android:text="@string/logInWithTwitter"/>
+        android:text="@string/signInWithTwitter"/>
+
+    <Button
+        android:id="@+id/googlePlusButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/googlePlusRed"
+        android:textColor="@android:color/white"
+        android:text="@string/signInWithGooglePlus"/>
+
+    <Button
+        android:id="@+id/emailButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:text="@string/signInWithEmail"/>
 
 </LinearLayout>

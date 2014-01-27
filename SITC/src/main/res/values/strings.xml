@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SITC</string>
 
+    <string name="notImplemented">Feature not yet implemented</string>
+
     <string name="actionNew">New</string>
     <string name="actionSettings">Settings</string>
     <string name="actionSearch">Search</string>
@@ -8,8 +10,10 @@
     <string name="plant">Plant</string>
     <string name="play">Play</string>
 
-    <string name="logInWithFacebook">Sign in with Facebook</string>
-    <string name="logInWithTwitter">Sign in with Twitter</string>
+    <string name="signInWithFacebook">Sign in with Facebook</string>
+    <string name="signInWithTwitter">Sign in with Twitter</string>
+    <string name="signInWithGooglePlus">Sign in with Google+</string>
+    <string name="signInWithEmail">Sign in with Email</string>
 
     <string-array name="carpoolSites">
         <item>Bloomfield Hills</item>
@@ -27,4 +31,9 @@
         <item>user_location</item>
         <item>read_friendlists</item>
     </string-array>
+
+    <!-- hints -->
+    <string name="firstNameHint">First Name</string>
+    <string name="lastNameHint">Last Name</string>
+    <string name="emailHint">Email</string>
 </resources>
