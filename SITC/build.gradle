@@ -11,11 +11,12 @@ apply plugin: 'android'
 
 repositories {
     mavenCentral()
+    maven { url "http://mente.github.io/facebook-api-android-aar" }
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    buildToolsVersion '19.0.0'
 
     defaultConfig {
         minSdkVersion 14
@@ -40,18 +41,20 @@ android {
 
 apply plugin: 'android-unit-test'
 
-ext.androidAnnotationsVersion= '3.0.1';
-ext.springFrameworkVersion='1.0.1.RELEASE';
+ext.androidAnnotationsVersion = '3.0.1';
+ext.springFrameworkVersion = '1.0.1.RELEASE';
 
 configurations {
     apt
 }
 
 dependencies {
+    compile 'com.android.support:support-v4:18.0.+'
+
     // gson
     compile 'com.google.code.gson:gson:2.2.4'
 
-    compile group: 'org.springframework.android', name:'spring-android-rest-template', version:'1.0.1.RELEASE'
+    compile group: 'org.springframework.android', name: 'spring-android-rest-template', version: '1.0.1.RELEASE'
 
     // android annotations
     apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
@@ -63,6 +66,9 @@ dependencies {
 
     compile files('libs/Parse-1.4.0/Parse-1.4.0.jar')
 
+    // facebook
+    compile 'com.facebook:facebook-android-sdk:+@aar'
+
     // testing
     instrumentTestCompile 'org.robolectric:robolectric:2.2'
     instrumentTestCompile 'junit:junit:4.11'
@@ -73,6 +79,7 @@ dependencies {
 }
 
 /* annotations stuff */
+
 def getSourceSetName(variant) {
     return new File(variant.dirName).getName();
 }
