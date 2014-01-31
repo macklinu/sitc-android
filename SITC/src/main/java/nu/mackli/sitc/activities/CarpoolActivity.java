@@ -1,17 +1,20 @@
 package nu.mackli.sitc.activities;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.FragmentTransaction;
-import android.widget.ArrayAdapter;
-import android.widget.SpinnerAdapter;
+import android.graphics.drawable.Drawable;
+
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.res.DrawableRes;
 
 import nu.mackli.sitc.R;
-import nu.mackli.sitc.fragments.VolunteerListFragment;
 import nu.mackli.sitc.fragments.VolunteerListFragment_;
+import nu.mackli.sitc.models.CarpoolSite;
+import nu.mackli.sitc.views.ParseSpinnerAdapter;
 
 /**
  * Created by macklinu on 1/24/14.
@@ -19,11 +22,26 @@ import nu.mackli.sitc.fragments.VolunteerListFragment_;
 @EActivity(R.layout.activity_main)
 public class CarpoolActivity extends BaseActivity implements ActionBar.OnNavigationListener {
 
-    private SpinnerAdapter spinnerAdapter;
+    @DrawableRes(R.drawable.ic_action_place) Drawable placeDrawable;
+
+    private ParseSpinnerAdapter spinnerAdapter;
+
+
 
     @AfterViews
     public void afterViews() {
-        spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.carpoolSites, android.R.layout.simple_spinner_dropdown_item);
+        // spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.carpoolSites, android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter = new ParseSpinnerAdapter(this, new ParseQueryAdapter.QueryFactory<ParseObject>() {
+            public ParseQuery<ParseObject> create() {
+                // Here we can configure a ParseQuery to our heart's desire.
+                ParseQuery query = new ParseQuery(CarpoolSite.class);
+                query.orderByAscending("name");
+                return query;
+            }
+        });
+
+        spinnerAdapter.setTextKey("name");
+
         setUpActionBar();
     }
 

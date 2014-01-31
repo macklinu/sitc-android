@@ -1,6 +1,6 @@
 package nu.mackli.sitc.fragments;
 
-import android.app.Fragment;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import org.androidannotations.annotations.AfterViews;
@@ -13,16 +13,12 @@ import org.androidannotations.annotations.ViewById;
 import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import nu.mackli.sitc.R;
-import nu.mackli.sitc.adapters.CustomArrayAdapter;
 import nu.mackli.sitc.api.RestCallback;
 import nu.mackli.sitc.api.randomuser.RandomUserApi;
 import nu.mackli.sitc.models.randomuser.RandomUser;
 import nu.mackli.sitc.models.randomuser.Results;
-import nu.mackli.sitc.views.ExpandableListItem;
-import nu.mackli.sitc.views.ExpandingListView;
 
 /**
  * Created by macklinu on 1/24/14.
@@ -31,19 +27,12 @@ import nu.mackli.sitc.views.ExpandingListView;
 @OptionsMenu(R.menu.main)
 public class VolunteerListFragment extends BaseFragment implements RestCallback<RandomUser> {
 
-    private final int CELL_DEFAULT_HEIGHT = 200;
-    private final int NUM_OF_CELLS = 15;
-
     @Bean RandomUserApi api;
 
-    @ViewById ExpandingListView volunteerList;
     @ViewById ProgressBar progressBar;
+    @ViewById ListView volunteerList;
 
     ArrayList<Results> results;
-    ArrayList<ExpandableListItem> listItems;
-    List<ExpandableListItem> mData;
-
-    CustomArrayAdapter adapter;
 
     @AfterViews
     public void onAfterView() {
@@ -62,7 +51,6 @@ public class VolunteerListFragment extends BaseFragment implements RestCallback<
 
             @Override
             public void onSuccess(RandomUser response) {
-                addUser(response);
             }
 
             @Override
@@ -77,15 +65,6 @@ public class VolunteerListFragment extends BaseFragment implements RestCallback<
         });
     }
 
-    @UiThread
-    public void addUser(RandomUser response) {
-        Results result = response.getResults().get(0);
-        String name = result.getUser().getName().toString();
-        String picture = result.getUser().getPicture();
-        mData.add(0, new ExpandableListItem(name, picture, CELL_DEFAULT_HEIGHT, "testing"));
-        adapter.notifyDataSetChanged();
-    }
-
     @OptionsItem
     public void actionSearch() {
         // search for person
@@ -94,28 +73,6 @@ public class VolunteerListFragment extends BaseFragment implements RestCallback<
     @OptionsItem
     public void actionSettings() {
         // open settings
-    }
-
-    @UiThread
-    public void createCells() {
-        listItems = new ArrayList<ExpandableListItem>();
-        for (Results result : results) {
-            String name = result.getUser().getName().toString();
-            String picture = result.getUser().getPicture();
-            listItems.add(new ExpandableListItem(name, picture, CELL_DEFAULT_HEIGHT, "testing"));
-        }
-
-        mData = new ArrayList<ExpandableListItem>();
-
-        for (int i = 0; i < NUM_OF_CELLS; i++) {
-            ExpandableListItem obj = listItems.get(i % listItems.size());
-            mData.add(new ExpandableListItem(obj.getTitle(), obj.getImgResource(),
-                    obj.getCollapsedHeight(), obj.getText()));
-        }
-
-        adapter = new CustomArrayAdapter(getActivity(), R.layout.list_view_item, mData);
-
-        volunteerList.setAdapter(adapter);
     }
 
     @Override
@@ -127,7 +84,6 @@ public class VolunteerListFragment extends BaseFragment implements RestCallback<
     @Override
     public void onSuccess(RandomUser response) {
         setResults(response.getResults());
-        createCells();
     }
 
     @Override

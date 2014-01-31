@@ -1,7 +1,5 @@
 package nu.mackli.sitc.activities;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.view.Window;
 
@@ -10,12 +8,10 @@ import com.parse.ParseFacebookUtils;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Fullscreen;
-import org.androidannotations.annotations.NoTitle;
 import org.androidannotations.annotations.OnActivityResult;
 import org.androidannotations.annotations.WindowFeature;
 
 import nu.mackli.sitc.R;
-import nu.mackli.sitc.fragments.LoginFragment;
 import nu.mackli.sitc.fragments.LoginFragment_;
 
 /**
