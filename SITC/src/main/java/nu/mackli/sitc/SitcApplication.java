@@ -12,6 +12,7 @@ import org.androidannotations.annotations.EApplication;
 import nu.mackli.sitc.api.parse.ParseConstants;
 import nu.mackli.sitc.interfaces.ApplicationHelper;
 import nu.mackli.sitc.models.CarpoolSite;
+import nu.mackli.sitc.models.TestUser;
 
 /**
  * Created by macklinu on 1/25/14.
@@ -33,6 +34,7 @@ public class SitcApplication extends Application implements ApplicationHelper {
 
     private void registerSubclasses() {
         ParseObject.registerSubclass(CarpoolSite.class);
+        ParseObject.registerSubclass(TestUser.class);
     }
 
     @Override
