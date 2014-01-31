@@ -24,24 +24,20 @@ import nu.mackli.sitc.fragments.LoginFragment_;
 @EActivity(R.layout.activity_login)
 @Fullscreen
 @WindowFeature(Window.FEATURE_NO_TITLE)
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
     public static final int FACEBOOK_FINISH_AUTH = 100;
 
     @AfterViews
     public void afterViews() {
-        createFragment();
+        // if user is logged in
+        // log in the user
+        // else
+        // create login fragment
+        createFragment(R.id.loginFrame, new LoginFragment_());
     }
 
     @OnActivityResult(FACEBOOK_FINISH_AUTH)
     public void onFacebookFinishAuth(int resultCode, Intent data) {
         ParseFacebookUtils.finishAuthentication(FACEBOOK_FINISH_AUTH, resultCode, data);
-    }
-
-    private void createFragment() {
-        LoginFragment fragment = new LoginFragment_();
-
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.loginFrame, fragment)
-                .commit();
     }
 }

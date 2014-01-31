@@ -29,7 +29,7 @@ import nu.mackli.sitc.views.ExpandingListView;
  */
 @EFragment(R.layout.fragment_volunteer_list)
 @OptionsMenu(R.menu.main)
-public class VolunteerListFragment extends Fragment implements RestCallback<RandomUser> {
+public class VolunteerListFragment extends BaseFragment implements RestCallback<RandomUser> {
 
     private final int CELL_DEFAULT_HEIGHT = 200;
     private final int NUM_OF_CELLS = 15;

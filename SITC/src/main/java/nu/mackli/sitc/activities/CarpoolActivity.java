@@ -17,7 +17,7 @@ import nu.mackli.sitc.fragments.VolunteerListFragment_;
  * Created by macklinu on 1/24/14.
  */
 @EActivity(R.layout.activity_main)
-public class MainActivity extends Activity implements ActionBar.OnNavigationListener {
+public class CarpoolActivity extends BaseActivity implements ActionBar.OnNavigationListener {
 
     private SpinnerAdapter spinnerAdapter;
 
@@ -36,15 +36,8 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         // swap fragment
-        createFragment();
+        createFragment(R.id.fragmentFrame, new VolunteerListFragment_());
         return true;
-    }
-
-    private void createFragment() {
-        VolunteerListFragment fragment = new VolunteerListFragment_();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragmentFrame, fragment)
-                .commit();
     }
 
     private void setUpActionBar() {

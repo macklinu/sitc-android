@@ -23,7 +23,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.activities.CarpoolActivity_;
 import nu.mackli.sitc.activities.LoginActivity;
+import nu.mackli.sitc.activities.MapActivity_;
 import nu.mackli.sitc.activities.RegistrationActivity_;
 
 import static nu.mackli.sitc.activities.RegistrationActivity.WITH_EMAIL;
@@ -34,14 +36,12 @@ import static nu.mackli.sitc.activities.RegistrationActivity.WITH_TWITTER;
  * Created by macklinu on 1/25/14.
  */
 @EFragment(R.layout.fragment_login)
-public class LoginFragment extends Fragment {
+public class LoginFragment extends BaseFragment {
 
     @StringArrayRes String[] facebookPermissions;
-    @StringRes String notImplemented;
 
     @AfterViews
     public void onAfterViews() {
-        ParseUser.logOut();
     }
 
     /**
@@ -49,18 +49,16 @@ public class LoginFragment extends Fragment {
      */
 
     @Click
+    public void carpoolButton() {
+        // go to carpool activity
+        CarpoolActivity_
+                .intent(getActivity())
+                .start();
+    }
+
+    @Click
     public void facebookButton() {
         logInWithFacebook();
-    }
-
-    @Click
-    public void twitterButton() {
-        logInWithTwitter();
-    }
-
-    @Click
-    public void googlePlusButton() {
-        logInWithGooglePlus();
     }
 
     @Click
@@ -68,21 +66,6 @@ public class LoginFragment extends Fragment {
         logInWithEmail();
         // log in with email
         // move to the RegistrationActivity
-    }
-
-    private void logInWithGooglePlus() {
-        Toast.makeText(getActivity(), notImplemented, Toast.LENGTH_SHORT).show();
-    }
-
-    private void logInWithTwitter() {
-        ParseTwitterUtils.logIn(getActivity(), new LogInCallback() {
-            @Override
-            public void done(ParseUser parseUser, ParseException e) {
-                // handle twitter login
-                // move to data registration view
-                startRegistrationActivity(WITH_TWITTER);
-            }
-        });
     }
 
     private void logInWithFacebook() {

@@ -1,9 +1,5 @@
 package nu.mackli.sitc.activities;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
-import android.util.Log;
-
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.model.GraphUser;
@@ -21,7 +17,7 @@ import nu.mackli.sitc.fragments.RegistrationInfoFragment_;
  * Created by macklinu on 1/26/14.
  */
 @EActivity(R.layout.activity_registration)
-public class RegistrationActivity extends Activity {
+public class RegistrationActivity extends BaseActivity {
     public static final int WITH_EMAIL = 0;
     public static final int WITH_FACEBOOK = 1;
     public static final int WITH_TWITTER = 2;
@@ -32,6 +28,7 @@ public class RegistrationActivity extends Activity {
     public void onAfterViews() {
         switch (startedWith) {
             case WITH_EMAIL:
+                createFragment(R.id.registrationFrame, new RegistrationInfoFragment_());
                 break;
             case WITH_FACEBOOK:
                 getFacebookData();
@@ -54,9 +51,8 @@ public class RegistrationActivity extends Activity {
                         .email(graphUser.asMap().get("email").toString())
                         .build();
 
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.registrationFrame, fragment)
-                        .commit();
+                createFragment(R.id.registrationFrame, fragment);
+
             }
         });
         request.executeAsync();

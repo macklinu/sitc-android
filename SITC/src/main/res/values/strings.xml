@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">SITC</string>
 
-    <string name="notImplemented">Feature not yet implemented</string>
-
     <string name="actionNew">New</string>
     <string name="actionSettings">Settings</string>
     <string name="actionSearch">Search</string>
@@ -36,4 +34,8 @@
     <string name="firstNameHint">First Name</string>
     <string name="lastNameHint">Last Name</string>
     <string name="emailHint">Email</string>
+    <string name="passwordHint">Password</string>
+
+    <!-- form validation -->
+    <string name="thatShitEmpty">Yo, that shit empty. Fix it.</string>
 </resources>

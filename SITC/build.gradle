@@ -49,22 +49,27 @@ configurations {
 }
 
 dependencies {
+    // google services
     compile 'com.google.android.gms:play-services:4.1.32'
     compile 'com.android.support:support-v4:18.0.+'
 
     // gson
     compile 'com.google.code.gson:gson:2.2.4'
 
+    // spring
     compile group: 'org.springframework.android', name: 'spring-android-rest-template', version: '1.0.1.RELEASE'
 
     // android annotations
     apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
     compile "org.androidannotations:androidannotations-api:${androidAnnotationsVersion}"
 
+    // utils
     compile 'org.apache.commons:commons-lang3:3.1'
 
+    // picasso
     compile 'com.squareup.picasso:picasso:2.1.1'
 
+    // parse
     compile files('libs/Parse-1.4.0/Parse-1.4.0.jar')
 
     // facebook
