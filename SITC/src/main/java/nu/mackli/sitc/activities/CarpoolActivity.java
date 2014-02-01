@@ -9,28 +9,28 @@ import com.parse.ParseQueryAdapter;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.res.DrawableRes;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.adapters.ParseSpinnerAdapter;
+import nu.mackli.sitc.fragments.VolunteerListFragment;
 import nu.mackli.sitc.fragments.VolunteerListFragment_;
 import nu.mackli.sitc.models.CarpoolSite;
-import nu.mackli.sitc.views.ParseSpinnerAdapter;
 
 /**
  * Created by macklinu on 1/24/14.
  */
 @EActivity(R.layout.activity_main)
+@OptionsMenu({R.menu.carpool, R.menu.main})
 public class CarpoolActivity extends BaseActivity implements ActionBar.OnNavigationListener {
 
     @DrawableRes(R.drawable.ic_action_place) Drawable placeDrawable;
 
     private ParseSpinnerAdapter spinnerAdapter;
 
-
-
     @AfterViews
     public void afterViews() {
-        // spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.carpoolSites, android.R.layout.simple_spinner_dropdown_item);
         spinnerAdapter = new ParseSpinnerAdapter(this, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             public ParseQuery<ParseObject> create() {
                 // Here we can configure a ParseQuery to our heart's desire.
@@ -39,9 +39,6 @@ public class CarpoolActivity extends BaseActivity implements ActionBar.OnNavigat
                 return query;
             }
         });
-
-        spinnerAdapter.setTextKey("name");
-
         setUpActionBar();
     }
 
@@ -54,7 +51,10 @@ public class CarpoolActivity extends BaseActivity implements ActionBar.OnNavigat
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         // swap fragment
-        createFragment(R.id.fragmentFrame, new VolunteerListFragment_());
+        VolunteerListFragment fragment = VolunteerListFragment_.builder()
+                .carpoolSiteId(spinnerAdapter.getItem(itemPosition).getObjectId())
+                .build();
+        createFragment(R.id.fragmentFrame, fragment);
         return true;
     }
 

@@ -2,22 +2,20 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/actionNew"
-        android:icon="@drawable/ic_action_new"
-        android:title="@string/actionNew"
+        android:id="@+id/actionViewProfile"
+        android:title="Profile"
         android:orderInCategory="200"
-        android:showAsAction="always"/>
-
-    <item
-        android:id="@+id/actionSearch"
-        android:icon="@drawable/ic_action_search"
-        android:title="@string/actionSearch"
-        android:orderInCategory="200"
-        android:showAsAction="always"/>
+        android:showAsAction="never"/>
 
     <item
         android:id="@+id/actionSettings"
         android:title="@string/actionSettings"
         android:orderInCategory="300"
+        android:showAsAction="never"/>
+
+    <item
+        android:id="@+id/actionLogOut"
+        android:title="Log Out"
+        android:orderInCategory="400"
         android:showAsAction="never"/>
 </menu>

@@ -1,4 +1,4 @@
-package nu.mackli.sitc.views;
+package nu.mackli.sitc.adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -39,7 +39,7 @@ public class ParseSpinnerAdapter extends ParseQueryAdapter<ParseObject> {
     @Override
     public View getItemView(ParseObject object, View v, ViewGroup parent) {
         if (v == null) {
-            v = View.inflate(getContext(), android.R.layout.simple_spinner_dropdown_item, null);
+            v = View.inflate(getContext(), android.R.layout.simple_spinner_item, null);
         }
         super.getItemView(object, v, parent);
         TextView textView = (TextView) v.findViewById(android.R.id.text1);
@@ -47,5 +47,8 @@ public class ParseSpinnerAdapter extends ParseQueryAdapter<ParseObject> {
         return v;
     }
 
-
+    @Override
+    public ParseObject getItem(int index) {
+        return super.getItem(index);
+    }
 }
