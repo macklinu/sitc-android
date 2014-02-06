@@ -3,6 +3,18 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@android:color/holo_orange_light</item>
+        <item name="android:titleTextStyle">@style/AppTheme.ActionBar.Title</item>
+        <item name="android:actionBarItemBackground">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Title"
+           parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
 </resources>

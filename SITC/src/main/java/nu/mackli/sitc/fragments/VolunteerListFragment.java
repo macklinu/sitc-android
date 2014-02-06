@@ -8,15 +8,15 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.ViewById;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.activities.CarpoolUserActivity_;
 import nu.mackli.sitc.adapters.ParseTestUserAdapter;
-import nu.mackli.sitc.api.randomuser.RandomUserApi;
 import nu.mackli.sitc.models.CarpoolSite;
 import nu.mackli.sitc.models.TestUser;
 
@@ -25,8 +25,6 @@ import nu.mackli.sitc.models.TestUser;
  */
 @EFragment(R.layout.fragment_volunteer_list)
 public class VolunteerListFragment extends BaseFragment {
-
-    @Bean RandomUserApi api;
 
     @ViewById ProgressBar progressBar;
     @ViewById ListView volunteerList;
@@ -41,10 +39,10 @@ public class VolunteerListFragment extends BaseFragment {
 
             @Override
             public ParseQuery<ParseObject> create() {
-                ParseQuery query = new ParseQuery(TestUser.class);
+                ParseQuery<ParseObject> query = new ParseQuery(TestUser.class);
                 ParseObject obj = ParseObject.createWithoutData(CarpoolSite.class, carpoolSiteId);
-                query.whereEqualTo("primaryCarpoolSite", obj);
-                query.orderByAscending(TestUser.LAST_NAME);
+                query.whereEqualTo("primaryCarpoolSite", obj)
+                        .orderByAscending(TestUser.LAST_NAME);
                 return query;
             }
         });
@@ -61,4 +59,11 @@ public class VolunteerListFragment extends BaseFragment {
         // open settings
     }
 
+    @ItemClick
+    public void volunteerListItemClicked(TestUser testUser) {
+        CarpoolUserActivity_
+                .intent(getActivity())
+                .testUserObjectId(testUser.getObjectId())
+                .start();
+    }
 }

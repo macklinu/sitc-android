@@ -4,6 +4,8 @@ import com.parse.ParseClassName;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 
+import nu.mackli.sitc.models.enums.Gender;
+
 /**
  * Created by macklinu on 1/31/14.
  */
@@ -12,11 +14,6 @@ public class TestUser extends ParseObject {
     public static final String FIRST_NAME = "firstName";
     public static final String LAST_NAME = "lastName";
     public static final String PRIMARY_CARPOOL_SITE = "primaryCarpoolSite";
-
-    private enum Gender {
-        MALE,
-        FEMALE
-    }
 
     public String getFirstName() {
         return getString(FIRST_NAME);

@@ -11,6 +11,8 @@ import com.parse.ParseQueryAdapter;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.models.TestUser;
+import nu.mackli.sitc.models.enums.Gender;
+import nu.mackli.sitc.utils.TestUserUtil;
 
 /**
  * Created by macklinu on 1/31/14.
@@ -49,8 +51,9 @@ public class ParseTestUserAdapter extends ParseQueryAdapter<ParseObject> {
         super.getItemView(object, v, parent);
         CircleImageView image = (CircleImageView) v.findViewById(R.id.image);
         TextView name = (TextView) v.findViewById(R.id.name);
+        int placeholderImageId = TestUserUtil.determinePlaceholderImage(user);
         name.setText(user.getFullName());
-        image.setImageResource(R.drawable.ic_action_person);
+        image.setImageResource(placeholderImageId);
         return v;
     }
 
