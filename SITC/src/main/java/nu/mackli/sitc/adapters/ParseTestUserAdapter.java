@@ -11,7 +11,6 @@ import com.parse.ParseQueryAdapter;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.models.TestUser;
-import nu.mackli.sitc.models.enums.Gender;
 import nu.mackli.sitc.utils.TestUserUtil;
 
 /**
