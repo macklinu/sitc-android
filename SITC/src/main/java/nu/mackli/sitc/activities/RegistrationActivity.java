@@ -1,5 +1,7 @@
 package nu.mackli.sitc.activities;
 
+import android.widget.Toast;
+
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.model.GraphUser;
@@ -12,12 +14,13 @@ import org.androidannotations.annotations.Extra;
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment_;
+import nu.mackli.sitc.interfaces.FormValidationInterface;
 
 /**
  * Created by macklinu on 1/26/14.
  */
 @EActivity(R.layout.activity_registration)
-public class RegistrationActivity extends BaseActivity {
+public class RegistrationActivity extends BaseActivity implements FormValidationInterface {
     public static final int WITH_EMAIL = 0;
     public static final int WITH_FACEBOOK = 1;
     public static final int WITH_TWITTER = 2;
@@ -58,4 +61,14 @@ public class RegistrationActivity extends BaseActivity {
         request.executeAsync();
     }
 
+    @Override
+    public void onFormValidationSuccess() {
+        // save the data
+        // start the next activity
+    }
+
+    @Override
+    public void onFormValidationError(String errorMessage) {
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+    }
 }
