@@ -8,28 +8,28 @@
     android:background="@android:color/holo_orange_light">
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/firstNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/firstNameHint"
-        android:layout_marginLeft="@dimen/sideMargin"
-        android:layout_marginRight="@dimen/sideMargin"
-        android:padding="10dp"
-        android:background="@android:color/white"/>
+        android:hint="@string/firstNameHint"/>
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/lastNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/lastNameHint"/>
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/emailHint"/>
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/passwordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
