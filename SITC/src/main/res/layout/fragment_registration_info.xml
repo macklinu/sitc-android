@@ -4,13 +4,18 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-    android:id="@+id/registrationInfoContainer">
+    android:id="@+id/registrationInfoContainer"
+    android:background="@android:color/holo_orange_light">
 
     <EditText
         android:id="@+id/firstNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/firstNameHint"/>
+        android:hint="@string/firstNameHint"
+        android:layout_marginLeft="@dimen/sideMargin"
+        android:layout_marginRight="@dimen/sideMargin"
+        android:padding="10dp"
+        android:background="@android:color/white"/>
 
     <EditText
         android:id="@+id/lastNameInput"
