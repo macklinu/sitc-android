@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.7.+'
         classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
     }
 }
@@ -51,7 +51,7 @@ configurations {
 dependencies {
     // google services
     compile 'com.google.android.gms:play-services:4.1.32'
-    compile 'com.android.support:support-v4:18.0.+'
+    compile 'com.android.support:support-v4:19.0.+'
 
     // gson
     compile 'com.google.code.gson:gson:2.2.4'
