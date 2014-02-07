@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SITC/SITC.iml" filepath="$PROJECT_DIR$/SITC/SITC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libs/facebook/facebook.iml" filepath="$PROJECT_DIR$/libs/facebook/facebook.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/sitc-android.iml" filepath="$PROJECT_DIR$/sitc-android.iml" />
     </modules>
   </component>
