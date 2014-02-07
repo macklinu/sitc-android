@@ -27,6 +27,10 @@ public class RegistrationInfoFragment extends BaseFragment {
 
     @AfterViews
     public void onAfterViews() {
+        setViewsText();
+    }
+
+    private void setViewsText() {
         firstNameInput.setText(firstName);
         lastNameInput.setText(lastName);
         emailInput.setText(email);
