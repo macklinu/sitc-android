@@ -64,13 +64,13 @@ public class RegistrationActivity extends BaseActivity implements FormValidation
     }
 
     @Override
-    public void onFormValidationSuccess() {
+    public void onFormValid() {
         // save the data
         // start the next activity
     }
 
     @Override
-    public void onFormValidationError(String errorMessage) {
+    public void onFormInvalid(String errorMessage) {
         Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 }

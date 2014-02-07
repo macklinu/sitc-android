@@ -57,9 +57,9 @@ public class RegistrationInfoFragment extends BaseFragment {
     @Click
     public void registerButton() {
         if (isFormValid()) {
-            formValidationInterface.onFormValidationSuccess();
+            formValidationInterface.onFormValid();
         } else {
-            formValidationInterface.onFormValidationError(errorMessage);
+            formValidationInterface.onFormInvalid(errorMessage);
         }
     }
 
