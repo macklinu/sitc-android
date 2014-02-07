@@ -9,6 +9,7 @@ import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.interfaces.FormValidationInterface;
 
 /**
  * Created by macklinu on 1/26/14.
@@ -25,9 +26,15 @@ public class RegistrationInfoFragment extends BaseFragment {
     @FragmentArg String lastName;
     @FragmentArg String email;
 
+    private FormValidationInterface formValidationInterface;
+
     @AfterViews
     public void onAfterViews() {
         setViewsText();
+    }
+
+    public void setInterface(FormValidationInterface formValidationInterface) {
+        this.formValidationInterface = formValidationInterface;
     }
 
     private void setViewsText() {

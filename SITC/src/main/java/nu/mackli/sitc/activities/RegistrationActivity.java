@@ -31,7 +31,9 @@ public class RegistrationActivity extends BaseActivity implements FormValidation
     public void onAfterViews() {
         switch (startedWith) {
             case WITH_EMAIL:
-                createFragment(R.id.registrationFrame, new RegistrationInfoFragment_());
+                RegistrationInfoFragment fragment = new RegistrationInfoFragment_();
+                fragment.setInterface(this);
+                createFragment(R.id.registrationFrame, fragment);
                 break;
             case WITH_FACEBOOK:
                 getFacebookData();
