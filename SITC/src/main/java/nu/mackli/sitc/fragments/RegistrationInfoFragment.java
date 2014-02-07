@@ -27,13 +27,14 @@ public class RegistrationInfoFragment extends BaseFragment {
     @FragmentArg String email;
 
     private FormValidationInterface formValidationInterface;
+    private String errorMessage = "";
 
     @AfterViews
     public void onAfterViews() {
         setViewsText();
     }
 
-    public void setInterface(FormValidationInterface formValidationInterface) {
+    public void setFormValidationInterface(FormValidationInterface formValidationInterface) {
         this.formValidationInterface = formValidationInterface;
     }
 
@@ -55,20 +56,30 @@ public class RegistrationInfoFragment extends BaseFragment {
 
     @Click
     public void registerButton() {
+        if (isFormValid()) {
+            formValidationInterface.onFormValidationSuccess();
+        } else {
+            formValidationInterface.onFormValidationError(errorMessage);
+        }
+    }
 
-        /*
-        ParseUser user = ParseUser.getCurrentUser();
-
-        String fName = firstNameInput.getText().toString();
-        String lName = lastNameInput.getText().toString();
-        String email = emailInput.getText().toString();
-        String pword = passwordInput.getText().toString();
-
-        user.setEmail(email);
-        user.setPassword(pword);
-        user.put("firstName", fName);
-        user.put("lastName", lName);
-        user.saveInBackground();
-        */
+    private boolean isFormValid() {
+        if (firstNameInput.getText().toString().length() == 0) {
+            errorMessage = "Input a first name";
+            return false;
+        }
+        if (lastNameInput.getText().toString().length() == 0) {
+            errorMessage = "Input a last name";
+            return false;
+        }
+        if (emailInput.getText().toString().length() == 0) {
+            errorMessage = "Input an email address";
+            return false;
+        }
+        if (passwordInput.getText().toString().length() == 0) {
+            errorMessage = "Input a password";
+            return false;
+        }
+        return true;
     }
 }

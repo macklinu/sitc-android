@@ -32,7 +32,7 @@ public class RegistrationActivity extends BaseActivity implements FormValidation
         switch (startedWith) {
             case WITH_EMAIL:
                 RegistrationInfoFragment fragment = new RegistrationInfoFragment_();
-                fragment.setInterface(this);
+                fragment.setFormValidationInterface(this);
                 createFragment(R.id.registrationFrame, fragment);
                 break;
             case WITH_FACEBOOK:
