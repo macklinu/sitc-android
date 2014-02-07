@@ -1,5 +1,6 @@
 package nu.mackli.sitc.fragments;
 
+import android.app.ProgressDialog;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -33,8 +34,11 @@ public class VolunteerListFragment extends BaseFragment {
 
     private ParseTestUserAdapter adapter;
 
+    private ProgressDialog dialog;
+
     @AfterViews
-    public void onAfterView() {
+    public void onAfterViews() {
+        dialog = new ProgressDialog(getActivity());
         adapter = new ParseTestUserAdapter(getActivity(), new ParseQueryAdapter.QueryFactory<ParseObject>() {
 
             @Override
