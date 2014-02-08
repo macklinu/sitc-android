@@ -36,6 +36,13 @@
         android:inputType="textPassword"
         android:hint="@string/passwordHint"/>
 
+    <EditText
+        style="@style/AppTheme.EditText"
+        android:id="@+id/dobInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/dateOfBirth"/>
+
     <Button
         style="@style/AppTheme.Button"
         android:id="@+id/registerButton"

@@ -38,4 +38,5 @@
 
     <!-- form validation -->
     <string name="thatShitEmpty">Yo, that shit empty. Fix it.</string>
+    <string name="dateOfBirth">Date of birth</string>
 </resources>
