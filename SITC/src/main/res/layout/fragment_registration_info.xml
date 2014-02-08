@@ -43,6 +43,14 @@
         android:layout_height="wrap_content"
         android:hint="@string/dateOfBirth"/>
 
+    <EditText
+        style="@style/AppTheme.EditText"
+        android:id="@+id/phoneInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="@string/phoneNumber"/>
+
     <Button
         style="@style/AppTheme.Button"
         android:id="@+id/registerButton"
