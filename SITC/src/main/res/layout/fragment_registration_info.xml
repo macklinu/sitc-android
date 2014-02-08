@@ -4,8 +4,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-    android:id="@+id/registrationInfoContainer"
-    android:background="@android:color/holo_orange_light">
+              android:id="@+id/registrationInfoContainer"
+              android:background="@android:color/holo_orange_light">
 
     <EditText
         style="@style/AppTheme.EditText"
@@ -56,7 +56,6 @@
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
-        />
+        android:text="@string/next" />
 
 </LinearLayout>
