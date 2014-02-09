@@ -1,6 +1,7 @@
 package nu.mackli.sitc;
 
 import android.app.Application;
+import android.content.pm.ApplicationInfo;
 
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
@@ -9,13 +10,14 @@ import com.parse.ParseObject;
 import org.androidannotations.annotations.EApplication;
 
 import nu.mackli.sitc.api.parse.ParseConstants;
+import nu.mackli.sitc.interfaces.ApplicationHelper;
 import nu.mackli.sitc.models.CarpoolSite;
 
 /**
  * Created by macklinu on 1/25/14.
  */
 @EApplication
-public class SitcApplication extends Application {
+public class SitcApplication extends Application implements ApplicationHelper {
 
     @Override
     public void onCreate() {
@@ -31,5 +33,15 @@ public class SitcApplication extends Application {
 
     private void registerSubclasses() {
         ParseObject.registerSubclass(CarpoolSite.class);
+    }
+
+    @Override
+    public long getCurrentTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
+    @Override
+    public boolean isDebug() {
+        return (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
     }
 }
