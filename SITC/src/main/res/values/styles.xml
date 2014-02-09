@@ -5,4 +5,20 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="AppTheme.EditText" parent="android:Widget.Holo.Light.EditText">
+        <item name="android:layout_marginLeft">@dimen/sideMargin</item>
+        <item name="android:layout_marginRight">@dimen/sideMargin</item>
+        <item name="android:padding">@dimen/editTextPadding</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="android:Widget.Holo.Light.Button">
+        <item name="android:layout_marginLeft">@dimen/sideMargin</item>
+        <item name="android:layout_marginRight">@dimen/sideMargin</item>
+        <item name="android:padding">@dimen/editTextPadding</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@android:color/holo_green_dark</item>
+    </style>
+
 </resources>
