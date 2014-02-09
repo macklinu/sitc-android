@@ -43,13 +43,6 @@ public class RegistrationInfoFragment extends BaseFragment {
         firstNameInput.setText(firstName);
         lastNameInput.setText(lastName);
         emailInput.setText(email);
-
-        dobInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                return false;
-            }
-        });
     }
 
     @Override
