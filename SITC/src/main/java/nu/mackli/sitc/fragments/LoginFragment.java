@@ -15,6 +15,7 @@ import java.util.List;
 
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.activities.CarpoolActivity_;
+import nu.mackli.sitc.activities.CarpoolSiteOverviewActivity_;
 import nu.mackli.sitc.activities.LoginActivity;
 import nu.mackli.sitc.activities.RegistrationActivity_;
 
@@ -40,7 +41,7 @@ public class LoginFragment extends BaseFragment {
     @Click
     public void carpoolButton() {
         // go to carpool activity
-        CarpoolActivity_
+        CarpoolSiteOverviewActivity_
                 .intent(getActivity())
                 .start();
     }
