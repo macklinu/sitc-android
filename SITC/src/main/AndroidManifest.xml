@@ -60,6 +60,10 @@
             android:name=".activities.CarpoolSiteOverviewActivity_"
             android:launchMode="singleTop"/>
 
+        <activity
+            android:name=".activities.CarpoolSiteActivity_"
+            android:launchMode="singleTop"/>
+
     </application>
 
 </manifest>

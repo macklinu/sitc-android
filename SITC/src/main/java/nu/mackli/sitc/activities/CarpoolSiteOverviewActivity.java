@@ -1,8 +1,8 @@
 package nu.mackli.sitc.activities;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.Window;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -58,8 +58,11 @@ public class CarpoolSiteOverviewActivity extends BaseActivity {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 CarpoolSite site = markerSiteMap.get(marker);
-                String toastString = String.format("%s: %s", site.getObjectId(), site.getName());
-                Toast.makeText(CarpoolSiteOverviewActivity.this, toastString, Toast.LENGTH_SHORT).show();
+                CarpoolSiteActivity_
+                        .intent(CarpoolSiteOverviewActivity.this)
+                        .carpoolSiteObjectId(site.getObjectId())
+                        .flags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .start();
             }
         });
 
@@ -87,7 +90,6 @@ public class CarpoolSiteOverviewActivity extends BaseActivity {
             Marker m = map.addMarker(new MarkerOptions()
                     .position(latLng)
                     .flat(true)
-                    .snippet(site.getAddress())
                     .title(site.getName()));
             markerSiteMap.put(m, site);
         }

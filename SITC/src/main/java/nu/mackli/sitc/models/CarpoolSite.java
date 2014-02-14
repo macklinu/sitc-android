@@ -21,4 +21,12 @@ public class CarpoolSite extends ParseObject {
     public ParseGeoPoint getCoordinates() {
         return getParseGeoPoint("coordinates");
     }
+
+    public double getLatitude() {
+        return getParseGeoPoint("coordinates").getLatitude();
+    }
+
+    public double getLongitude() {
+        return getParseGeoPoint("coordinates").getLongitude();
+    }
 }
