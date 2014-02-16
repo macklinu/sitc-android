@@ -3,10 +3,8 @@ package nu.mackli.sitc.fragments;
 import android.app.DatePickerDialog;
 import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
-import android.view.KeyEvent;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;

@@ -8,11 +8,20 @@
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="10dp"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/address"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="10dp"/>
 
 </LinearLayout>
