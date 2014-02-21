@@ -1,15 +1,16 @@
 package nu.mackli.sitc;
 
 import android.app.Application;
+import android.content.pm.ApplicationInfo;
 
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseObject;
-import com.parse.ParseTwitterUtils;
 
 import org.androidannotations.annotations.EApplication;
 
 import nu.mackli.sitc.api.parse.ParseConstants;
+import nu.mackli.sitc.interfaces.ApplicationHelper;
 import nu.mackli.sitc.models.CarpoolSite;
 import nu.mackli.sitc.models.TestUser;
 
@@ -17,7 +18,7 @@ import nu.mackli.sitc.models.TestUser;
  * Created by macklinu on 1/25/14.
  */
 @EApplication
-public class SitcApplication extends Application {
+public class SitcApplication extends Application implements ApplicationHelper {
 
     @Override
     public void onCreate() {
@@ -29,11 +30,20 @@ public class SitcApplication extends Application {
     private void initParse() {
         Parse.initialize(this, ParseConstants.APPLICATION_ID, ParseConstants.CLIENT_ID);
         ParseFacebookUtils.initialize(ParseConstants.FACEBOOK_APP_ID);
-        ParseTwitterUtils.initialize(ParseConstants.TWITTER_CONSUMER_KEY, ParseConstants.TWITTER_CONSUMER_SECRET);
     }
 
     private void registerSubclasses() {
         ParseObject.registerSubclass(CarpoolSite.class);
         ParseObject.registerSubclass(TestUser.class);
+    }
+
+    @Override
+    public long getCurrentTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
+    @Override
+    public boolean isDebug() {
+        return (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
     }
 }

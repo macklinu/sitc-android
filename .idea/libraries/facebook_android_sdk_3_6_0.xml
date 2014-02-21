@@ -1,6 +1,7 @@
 <component name="libraryTable">
-  <library name="ComFacebookFacebookAndroidSdk360.aar">
+  <library name="facebook-android-sdk-3.6.0">
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/SITC/build/exploded-bundles/ComFacebookFacebookAndroidSdk360.aar/res" />
       <root url="jar://$PROJECT_DIR$/SITC/build/exploded-bundles/ComFacebookFacebookAndroidSdk360.aar/classes.jar!/" />
     </CLASSES>
     <JAVADOC />

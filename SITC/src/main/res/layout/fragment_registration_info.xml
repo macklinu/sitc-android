@@ -4,37 +4,83 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-    android:id="@+id/registrationInfoContainer">
+              android:id="@+id/registrationInfoContainer"
+              android:background="@android:color/holo_orange_light">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="We need your basic information"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-light"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"/>
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/firstNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/firstNameHint"/>
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/lastNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/lastNameHint"/>
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/emailHint"/>
 
     <EditText
+        style="@style/AppTheme.EditText"
         android:id="@+id/passwordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="@string/passwordHint"/>
 
-    <Button
-        android:id="@+id/registerButton"
+    <EditText
+        style="@style/AppTheme.EditText"
+        android:id="@+id/dobInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"/>
+        android:hint="@string/dateOfBirth"
+        android:inputType="date"
+        android:focusable="false"/>
+
+    <EditText
+        style="@style/AppTheme.EditText"
+        android:id="@+id/phoneInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="@string/phoneNumber"
+        android:maxLength="14"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+        <Button
+            style="@style/AppTheme.Button"
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

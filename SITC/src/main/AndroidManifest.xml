@@ -57,9 +57,14 @@
         <activity
             android:name=".activities.RegistrationActivity_"
             android:launchMode="singleTop"/>
-        <activity android:name=".activities.MapActivity_"/>
         <activity
-            android:name=".activities.CarpoolUserActivity_"
+            android:name=".activities.CarpoolUserActivity_"/>
+        <activity
+            android:name=".activities.CarpoolSiteOverviewActivity_"
+            android:launchMode="singleTop"/>
+
+        <activity
+            android:name=".activities.CarpoolSiteActivity_"
             android:launchMode="singleTop"/>
 
     </application>

@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.7.1'
         classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
     }
 }
@@ -37,12 +37,20 @@ android {
     sourceSets {
         instrumentTest.setRoot('src/test')
     }
+
+    packagingOptions {
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+    }
 }
 
 apply plugin: 'android-unit-test'
 
+ext.googlePlayServicesVersion = '4.2.42'
 ext.androidAnnotationsVersion = '3.0.1';
-ext.springFrameworkVersion = '1.0.1.RELEASE';
+ext.springVersion = '1.0.1.RELEASE';
+ext.mockitoVersion = '1.9.5';
+ext.picassoVersion = '2.2.0';
 
 configurations {
     apt
@@ -50,14 +58,14 @@ configurations {
 
 dependencies {
     // google services
-    compile 'com.google.android.gms:play-services:4.1.32'
-    compile 'com.android.support:support-v4:18.0.+'
+    compile "com.google.android.gms:play-services:${googlePlayServicesVersion}"
+    compile 'com.android.support:support-v4:19.0.+'
 
     // gson
     compile 'com.google.code.gson:gson:2.2.4'
 
     // spring
-    compile group: 'org.springframework.android', name: 'spring-android-rest-template', version: '1.0.1.RELEASE'
+    compile "org.springframework.android:spring-android-rest-template:${springVersion}"
 
     // android annotations
     apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
@@ -67,7 +75,7 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.1'
 
     // picasso
-    compile 'com.squareup.picasso:picasso:2.1.1'
+    compile "com.squareup.picasso:picasso:${picassoVersion}"
 
     // parse
     compile files('libs/Parse-1.4.0/Parse-1.4.0.jar')
@@ -82,9 +90,11 @@ dependencies {
     instrumentTestCompile 'org.robolectric:robolectric:2.2'
     instrumentTestCompile 'junit:junit:4.11'
     instrumentTestCompile 'com.squareup:fest-android:1.0.+'
+    instrumentTestCompile "org.mockito:mockito-all:${mockitoVersion}"
     testCompile 'org.robolectric:robolectric:2.2'
     testCompile 'junit:junit:4.11'
     testCompile 'com.squareup:fest-android:1.0.+'
+    testCompile "org.mockito:mockito-all:${mockitoVersion}"
 }
 
 /* annotations stuff */

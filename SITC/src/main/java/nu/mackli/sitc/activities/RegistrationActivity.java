@@ -20,7 +20,6 @@ import nu.mackli.sitc.fragments.RegistrationInfoFragment_;
 public class RegistrationActivity extends BaseActivity {
     public static final int WITH_EMAIL = 0;
     public static final int WITH_FACEBOOK = 1;
-    public static final int WITH_TWITTER = 2;
 
     @Extra int startedWith;
 
@@ -32,8 +31,6 @@ public class RegistrationActivity extends BaseActivity {
                 break;
             case WITH_FACEBOOK:
                 getFacebookData();
-                break;
-            case WITH_TWITTER:
                 break;
             default:
                 // how did we get here?
