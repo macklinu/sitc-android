@@ -4,6 +4,7 @@ import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -20,12 +21,18 @@ public class CarpoolUserDetailFragment extends BaseFragment {
     @ViewById CircleImageView profilePic;
     @ViewById TextView name;
 
+    @FragmentArg String userName;
+
+    private TestUser testUser;
+
     @AfterViews
     public void onAfterViews() {
+        name.setText(testUser.getFullName());
+        setProfilePicImage(testUser);
     }
 
-    public void setName(String name) {
-        this.name.setText(name);
+    public void setTestUser(TestUser testUser) {
+        this.testUser = testUser;
     }
 
     public void setProfilePicImage(TestUser testUser) {

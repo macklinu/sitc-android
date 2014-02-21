@@ -13,6 +13,8 @@ import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.UiThread;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.fragments.CarpoolUserDetailFragment;
+import nu.mackli.sitc.fragments.CarpoolUserDetailFragment_;
 import nu.mackli.sitc.models.TestUser;
 
 /**
@@ -34,7 +36,9 @@ public class CarpoolUserActivity extends BaseActivity {
             @Override
             public void done(TestUser testUser, ParseException e) {
                 CarpoolUserActivity.this.testUser = testUser;
-                updateDetailFragment();
+                CarpoolUserDetailFragment fragment = new CarpoolUserDetailFragment_();
+                fragment.setTestUser(testUser);
+                createFragment(R.id.carpoolUserFrame, fragment);
             }
         });
     }
@@ -42,10 +46,6 @@ public class CarpoolUserActivity extends BaseActivity {
     @OptionsItem(android.R.id.home)
     public void onBackClick() {
         super.onBackPressed();
-    }
-
-    @UiThread
-    public void updateDetailFragment() {
     }
 
     private void setUpActionBar() {
