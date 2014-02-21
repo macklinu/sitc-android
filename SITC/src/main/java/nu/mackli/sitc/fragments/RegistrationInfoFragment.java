@@ -62,14 +62,19 @@ public class RegistrationInfoFragment extends BaseFragment {
         DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int y, int m, int d) {
-                String date = String.format("%02d/%02d/%4d", m + 1, d, y);
-                dobInput.setText(date);
-                phoneInput.requestFocus();
+                setDateFromDatePicker(y, m, d);
             }
         }, year, month, day);
         datePicker.setTitle("Pick your birthday");
         datePicker.show();
     }
+
+    public void setDateFromDatePicker(int y, int m, int d) {
+        String date = String.format("%02d/%02d/%4d", m + 1, d, y);
+        dobInput.setText(date);
+        phoneInput.requestFocus();
+    }
+
 
     @Click
     public void registerButton() {

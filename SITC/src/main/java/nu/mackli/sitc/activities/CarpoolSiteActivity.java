@@ -50,7 +50,7 @@ public class CarpoolSiteActivity extends BaseActivity {
     @StringRes String googleMapsUrlFromCoordinates;
 
     private GoogleMap map;
-    private LatLng latLng;
+    private LatLng carpoolSiteLatLng;
     private CarpoolSite carpoolSite;
 
     @AfterViews
@@ -77,7 +77,7 @@ public class CarpoolSiteActivity extends BaseActivity {
                         switch (which) {
                             case 0:
                                 // use current location
-                                openGoogleMaps(googleMapsUtil.getUrl("1739 Sainte Anne, Detroit, MI 48216", latLng));
+                                openGoogleMaps(googleMapsUtil.getUrl("1739 Sainte Anne, Detroit, MI 48216", carpoolSiteLatLng));
                                 break;
                             case 1:
                                 // use primary carpool site
@@ -109,13 +109,13 @@ public class CarpoolSiteActivity extends BaseActivity {
     private void setupMap() {
         map = carpoolSiteMap.getMap();
 
-        latLng = new LatLng(carpoolSite.getLatitude(), carpoolSite.getLongitude());
+        carpoolSiteLatLng = new LatLng(carpoolSite.getLatitude(), carpoolSite.getLongitude());
         map.addMarker(new MarkerOptions()
-                .position(latLng)
+                .position(carpoolSiteLatLng)
                 .flat(true));
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(latLng)
+                .target(carpoolSiteLatLng)
                 .zoom(14)
                 .build();
 
