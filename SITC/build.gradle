@@ -83,6 +83,9 @@ dependencies {
     // facebook
     compile 'com.facebook:facebook-android-sdk:+@aar'
 
+    // list view animations
+    compile 'com.nhaarman.listviewanimations:library:2.5.2'
+
     // testing
     instrumentTestCompile 'org.robolectric:robolectric:2.2'
     instrumentTestCompile 'junit:junit:4.11'
