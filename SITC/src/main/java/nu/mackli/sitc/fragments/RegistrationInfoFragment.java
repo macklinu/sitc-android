@@ -78,21 +78,6 @@ public class RegistrationInfoFragment extends BaseFragment {
 
     @Click
     public void registerButton() {
-
-        /*
-        ParseUser user = ParseUser.getCurrentUser();
-
-        String fName = firstNameInput.getText().toString();
-        String lName = lastNameInput.getText().toString();
-        String email = emailInput.getText().toString();
-        String pword = passwordInput.getText().toString();
-
-        user.setEmail(email);
-        user.setPassword(pword);
-        user.put("firstName", fName);
-        user.put("lastName", lName);
-        user.saveInBackground();
-        */
     }
 
     @AfterTextChange
