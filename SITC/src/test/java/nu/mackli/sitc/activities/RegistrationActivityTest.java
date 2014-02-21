@@ -112,12 +112,13 @@ public class RegistrationActivityTest {
         dobInput.performClick();
         Dialog dialog = ShadowDialog.getLatestDialog();
         Assert.assertTrue(dialog.isShowing());
+        ShadowDialog shadowDialog = Robolectric.shadowOf(ShadowDialog.getLatestDialog());
+        Assert.assertEquals(shadowDialog.getTitle(), "Pick your birthday");
     }
 
     @Test
     public void setDateFromDatePickerTest() throws Exception {
         EditText dobInput = ((EditText) Robolectric.shadowOf(registrationActivity).findViewById(R.id.dobInput));
-        ShadowActivity shadowActivity = Robolectric.shadowOf(registrationActivity);
         infoFragment.setDateFromDatePicker(2013, 1, 3);
         String date = dobInput.getText().toString();
         Assert.assertEquals(date, "02/03/2013");
