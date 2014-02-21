@@ -3,10 +3,8 @@ package nu.mackli.sitc.fragments;
 import android.app.DatePickerDialog;
 import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
-import android.view.KeyEvent;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
@@ -64,32 +62,22 @@ public class RegistrationInfoFragment extends BaseFragment {
         DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int y, int m, int d) {
-                String date = String.format("%02d/%02d/%4d", m + 1, d, y);
-                dobInput.setText(date);
-                phoneInput.requestFocus();
+                setDateFromDatePicker(y, m, d);
             }
         }, year, month, day);
         datePicker.setTitle("Pick your birthday");
         datePicker.show();
     }
 
+    public void setDateFromDatePicker(int y, int m, int d) {
+        String date = String.format("%02d/%02d/%4d", m + 1, d, y);
+        dobInput.setText(date);
+        phoneInput.requestFocus();
+    }
+
+
     @Click
     public void registerButton() {
-
-        /*
-        ParseUser user = ParseUser.getCurrentUser();
-
-        String fName = firstNameInput.getText().toString();
-        String lName = lastNameInput.getText().toString();
-        String email = emailInput.getText().toString();
-        String pword = passwordInput.getText().toString();
-
-        user.setEmail(email);
-        user.setPassword(pword);
-        user.put("firstName", fName);
-        user.put("lastName", lName);
-        user.saveInBackground();
-        */
     }
 
     @AfterTextChange

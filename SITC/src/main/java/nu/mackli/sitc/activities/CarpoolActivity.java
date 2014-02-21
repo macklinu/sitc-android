@@ -1,8 +1,6 @@
 package nu.mackli.sitc.activities;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
@@ -10,7 +8,6 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 
 import nu.mackli.sitc.R;
-import nu.mackli.sitc.fragments.VolunteerListFragment;
 import nu.mackli.sitc.fragments.VolunteerListFragment_;
 
 /**

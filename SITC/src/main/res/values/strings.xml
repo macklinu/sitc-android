@@ -19,6 +19,17 @@
         <item>Grosse Pointe</item>
     </string-array>
 
+    <string name="googleMapsUrlBlank">http://maps.google.com/</string>
+    <string name="googleMapsUrlFromAddress">http://maps.google.com/maps?saddr=%1$s&amp;daddr=%2$s,%3$s</string>
+    <string name="googleMapsUrlFromCoordinates">http://maps.google.com/maps?saddr=%1$s,%2$s&amp;daddr=%3$s,%4$s</string>
+
+    <string name="directionsDialogTitle">Get directions from:</string>
+    <string-array name="directionsDialogItems">
+        <item>My current location</item>
+        <item>My primary carpool site</item>
+        <item>Just take me to Google Maps</item>
+    </string-array>
+
     <string-array name="facebookPermissions">
         <item>basic_info</item>
         <item>email</item>

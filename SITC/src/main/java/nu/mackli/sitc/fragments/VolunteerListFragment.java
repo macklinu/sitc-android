@@ -1,6 +1,5 @@
 package nu.mackli.sitc.fragments;
 
-import android.app.Fragment;
 import android.widget.ProgressBar;
 
 import org.androidannotations.annotations.AfterViews;
