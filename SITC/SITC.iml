@@ -120,6 +120,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="sqlite-jdbc-3.7.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-4.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-tree-4.1" level="project" />
+    <orderEntry type="library" exported="" name="circleimageview-1.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="ant-1.8.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.2.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="fest-android-1.0.7" level="project" />

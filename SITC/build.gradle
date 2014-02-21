@@ -83,6 +83,9 @@ dependencies {
     // facebook
     compile 'com.facebook:facebook-android-sdk:+@aar'
 
+    // circle image view
+    compile 'de.hdodenhof:circleimageview:1.0.1'
+
     // testing
     instrumentTestCompile 'org.robolectric:robolectric:2.2'
     instrumentTestCompile 'junit:junit:4.11'
