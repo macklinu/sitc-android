@@ -9,6 +9,9 @@ import com.parse.ParseObject;
  */
 @ParseClassName("TestUsers")
 public class TestUser extends ParseObject {
+    public static final String FIRST_NAME = "firstName";
+    public static final String LAST_NAME = "lastName";
+    public static final String PRIMARY_CARPOOL_SITE = "primaryCarpoolSite";
 
     private enum Gender {
         MALE,
@@ -16,11 +19,11 @@ public class TestUser extends ParseObject {
     }
 
     public String getFirstName() {
-        return getString("firstName");
+        return getString(FIRST_NAME);
     }
 
     public String getLastName() {
-        return getString("lastName");
+        return getString(LAST_NAME);
     }
 
     public String getFullName() {
@@ -42,5 +45,9 @@ public class TestUser extends ParseObject {
 
     public ParseGeoPoint getCoordinates() {
         return getParseGeoPoint("coordinates");
+    }
+
+    public CarpoolSite getPrimaryCarpoolSite() {
+        return (CarpoolSite) getParseObject(PRIMARY_CARPOOL_SITE);
     }
 }
