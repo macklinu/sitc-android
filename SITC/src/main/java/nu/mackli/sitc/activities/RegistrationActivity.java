@@ -11,7 +11,10 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 
+import java.util.List;
+
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.dialogs.RoleAssignDialog;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment_;
 import nu.mackli.sitc.fragments.RegistrationRoleFragment;
@@ -22,7 +25,7 @@ import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
  * Created by macklinu on 1/26/14.
  */
 @EActivity(R.layout.activity_registration)
-public class RegistrationActivity extends BaseActivity implements RegistrationFragmentContract {
+public class RegistrationActivity extends BaseActivity implements RegistrationFragmentContract, RoleAssignDialog.RoleAssignListener {
     public static final int WITH_EMAIL = 0;
     public static final int WITH_FACEBOOK = 1;
 
@@ -63,8 +66,8 @@ public class RegistrationActivity extends BaseActivity implements RegistrationFr
     }
 
     @Override
-    public void onRegistrationFragmentNext(String fragmentTag) {
-        if (fragmentTag.equalsIgnoreCase(RegistrationInfoFragment.FRAGMENT_TAG)) {
+    public void onRegistrationFragmentNext(Fragment fragment) {
+        if (fragment instanceof RegistrationInfoFragment) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.registrationFrame, new RegistrationRoleFragment_(), RegistrationRoleFragment.FRAGMENT_TAG)
@@ -73,7 +76,19 @@ public class RegistrationActivity extends BaseActivity implements RegistrationFr
     }
 
     @Override
-    public void onRegistrationFragmentPrevious(String fragmentTag) {
+    public void onRegistrationFragmentPrevious(Fragment fragment) {
 
+    }
+
+    @Override
+    public void onRoleAccessPositiveClick(RoleAssignDialog dialog) {
+        // email SITC or something
+    }
+
+    @Override
+    public void onRoleAccessNegativeClick(RoleAssignDialog dialog) {
+        // start the volunteer flow?
+        // or
+        // try a different email?
     }
 }

@@ -8,8 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.ParseException;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
 import org.androidannotations.annotations.AfterTextChange;
@@ -22,6 +20,7 @@ import org.androidannotations.annotations.ViewById;
 import java.util.Calendar;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.dialogs.SitcProgressDialog;
 import nu.mackli.sitc.fragments.base.ContractFragment;
 import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
 import nu.mackli.sitc.models.User;
@@ -96,11 +95,14 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
         user.put(User.PHONE, phoneInput.getText().toString());
         user.put(User.DATE_OF_BIRTH, dobInput.getText().toString());
 
+        final SitcProgressDialog progressDialog = new SitcProgressDialog(getActivity(), "Signing up");
+        progressDialog.show();
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
+                progressDialog.dismiss();
                 if (e == null) {
-                    getContract().onRegistrationFragmentNext(FRAGMENT_TAG);
+                    getContract().onRegistrationFragmentNext(RegistrationInfoFragment.this);
                 } else {
                     Toast.makeText(getActivity(), "User save error", Toast.LENGTH_SHORT).show();
                 }
