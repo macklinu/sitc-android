@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="We need your basic information"
+        android:text="Basic information"
         android:textSize="24sp"
         android:textColor="@android:color/white"
         android:fontFamily="sans-serif-light"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp"/>
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
 
     <EditText
         style="@style/AppTheme.EditText"
@@ -31,21 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/lastNameHint"/>
-
-    <EditText
-        style="@style/AppTheme.EditText"
-        android:id="@+id/emailInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/emailHint"/>
-
-    <EditText
-        style="@style/AppTheme.EditText"
-        android:id="@+id/passwordInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/passwordHint"/>
 
     <EditText
         style="@style/AppTheme.EditText"
@@ -65,6 +50,29 @@
         android:hint="@string/phoneNumber"
         android:maxLength="14"/>
 
+    <EditText
+        style="@style/AppTheme.EditText"
+        android:layout_marginTop="20dp"
+        android:id="@+id/usernameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/usernameHint"/>
+
+    <EditText
+        style="@style/AppTheme.EditText"
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/emailHint"/>
+
+    <EditText
+        style="@style/AppTheme.EditText"
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/passwordHint"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -73,7 +81,7 @@
 
         <Button
             style="@style/AppTheme.Button"
-            android:id="@+id/registerButton"
+            android:id="@+id/nextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/next"
