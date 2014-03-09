@@ -7,6 +7,7 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.fragments.base.BaseFragment;
 import nu.mackli.sitc.models.CarpoolSite;
 
 /**

@@ -44,6 +44,7 @@
     <!-- hints -->
     <string name="firstNameHint">First Name</string>
     <string name="lastNameHint">Last Name</string>
+    <string name="usernameHint">Username</string>
     <string name="emailHint">Email</string>
     <string name="passwordHint">Password</string>
 

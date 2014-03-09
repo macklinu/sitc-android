@@ -1,5 +1,7 @@
 package nu.mackli.sitc.activities;
 
+import android.support.v4.app.Fragment;
+
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.model.GraphUser;
@@ -9,15 +11,21 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 
+import java.util.List;
+
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.dialogs.RoleAssignDialog;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment_;
+import nu.mackli.sitc.fragments.RegistrationRoleFragment;
+import nu.mackli.sitc.fragments.RegistrationRoleFragment_;
+import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
 
 /**
  * Created by macklinu on 1/26/14.
  */
 @EActivity(R.layout.activity_registration)
-public class RegistrationActivity extends BaseActivity {
+public class RegistrationActivity extends BaseActivity implements RegistrationFragmentContract, RoleAssignDialog.RoleAssignListener {
     public static final int WITH_EMAIL = 0;
     public static final int WITH_FACEBOOK = 1;
 
@@ -48,11 +56,39 @@ public class RegistrationActivity extends BaseActivity {
                         .email(graphUser.asMap().get("email").toString())
                         .build();
 
-                createFragment(R.id.registrationFrame, fragment);
-
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.registrationFrame, fragment, RegistrationInfoFragment.FRAGMENT_TAG)
+                        .commit();
             }
         });
         request.executeAsync();
     }
 
+    @Override
+    public void onRegistrationFragmentNext(Fragment fragment) {
+        if (fragment instanceof RegistrationInfoFragment) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.registrationFrame, new RegistrationRoleFragment_(), RegistrationRoleFragment.FRAGMENT_TAG)
+                    .commit();
+        }
+    }
+
+    @Override
+    public void onRegistrationFragmentPrevious(Fragment fragment) {
+
+    }
+
+    @Override
+    public void onRoleAccessPositiveClick(RoleAssignDialog dialog) {
+        // email SITC or something
+    }
+
+    @Override
+    public void onRoleAccessNegativeClick(RoleAssignDialog dialog) {
+        // start the volunteer flow?
+        // or
+        // try a different email?
+    }
 }

@@ -1,5 +1,7 @@
 package nu.mackli.sitc.fragments;
 
+import android.util.Log;
+
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
@@ -15,10 +17,9 @@ import java.util.List;
 
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.activities.CarpoolActivity_;
-import nu.mackli.sitc.activities.CarpoolSiteActivity_;
-import nu.mackli.sitc.activities.CarpoolSiteOverviewActivity_;
 import nu.mackli.sitc.activities.LoginActivity;
 import nu.mackli.sitc.activities.RegistrationActivity_;
+import nu.mackli.sitc.fragments.base.BaseFragment;
 
 import static nu.mackli.sitc.activities.RegistrationActivity.WITH_EMAIL;
 import static nu.mackli.sitc.activities.RegistrationActivity.WITH_FACEBOOK;
@@ -33,6 +34,7 @@ public class LoginFragment extends BaseFragment {
 
     @AfterViews
     public void onAfterViews() {
+
     }
 
     /**
@@ -49,7 +51,8 @@ public class LoginFragment extends BaseFragment {
 
     @Click
     public void facebookButton() {
-        logInWithFacebook();
+        // logInWithFacebook();
+        ParseUser.logOut();
     }
 
     @Click

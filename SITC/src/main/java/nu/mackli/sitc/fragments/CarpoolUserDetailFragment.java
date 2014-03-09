@@ -8,6 +8,7 @@ import org.androidannotations.annotations.ViewById;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.fragments.base.BaseFragment;
 import nu.mackli.sitc.models.TestUser;
 import nu.mackli.sitc.utils.TestUserUtil;
 
