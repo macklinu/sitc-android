@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.8.+'
+        classpath 'com.android.tools.build:gradle:0.9.+'
         classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
     }
 }
@@ -35,7 +35,7 @@ android {
     }
 
     sourceSets {
-        instrumentTest.setRoot('src/test')
+        androidTest.setRoot('src/test')
     }
 
     packagingOptions {
@@ -89,10 +89,10 @@ dependencies {
     compile 'com.github.gabrielemariotti.cards:library:1.4.2'
 
     // testing
-    instrumentTestCompile 'org.robolectric:robolectric:2.2'
-    instrumentTestCompile 'junit:junit:4.11'
-    instrumentTestCompile 'com.squareup:fest-android:1.0.+'
-    instrumentTestCompile "org.mockito:mockito-all:${mockitoVersion}"
+    androidTestCompile 'org.robolectric:robolectric:2.2'
+    androidTestCompile 'junit:junit:4.11'
+    androidTestCompile 'com.squareup:fest-android:1.0.+'
+    androidTestCompile "org.mockito:mockito-all:${mockitoVersion}"
     testCompile 'org.robolectric:robolectric:2.2'
     testCompile 'junit:junit:4.11'
     testCompile 'com.squareup:fest-android:1.0.+'
