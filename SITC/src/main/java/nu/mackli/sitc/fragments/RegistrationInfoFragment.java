@@ -7,6 +7,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
+import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.parse.ParseException;
 import com.parse.SignUpCallback;
 
@@ -29,7 +31,7 @@ import nu.mackli.sitc.models.User;
  * Created by macklinu on 1/26/14.
  */
 @EFragment(R.layout.fragment_registration_info)
-public class RegistrationInfoFragment extends ContractFragment<RegistrationFragmentContract> {
+public class RegistrationInfoFragment extends ContractFragment<RegistrationFragmentContract> implements DatePickerDialogFragment.DatePickerDialogHandler {
     public static final String FRAGMENT_TAG = "registrationFragment";
 
     @ViewById EditText firstNameInput;
@@ -65,18 +67,11 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
 
     @Click
     public void dobInput() {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int y, int m, int d) {
-                setDateFromDatePicker(y, m, d);
-            }
-        }, year, month, day);
-        datePicker.setTitle("Pick your birthday");
-        datePicker.show();
+        DatePickerBuilder datePickerBuilder = new DatePickerBuilder()
+                .setFragmentManager(getFragmentManager())
+                .setStyleResId(com.doomonafireball.betterpickers.R.style.BetterPickersDialogFragment_Light)
+                .setTargetFragment(this);
+        datePickerBuilder.show();
     }
 
     public void setDateFromDatePicker(int y, int m, int d) {
@@ -119,5 +114,10 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
             }
             isInAfterTextChange = false;
         }
+    }
+
+    @Override
+    public void onDialogDateSet(int reference, int y, int m, int d) {
+        setDateFromDatePicker(y, m, d);
     }
 }
