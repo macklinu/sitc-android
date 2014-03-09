@@ -18,6 +18,7 @@ import org.androidannotations.annotations.ViewById;
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.activities.CarpoolUserActivity_;
 import nu.mackli.sitc.adapters.ParseTestUserAdapter;
+import nu.mackli.sitc.fragments.base.BaseFragment;
 import nu.mackli.sitc.models.CarpoolSite;
 import nu.mackli.sitc.models.TestUser;
 

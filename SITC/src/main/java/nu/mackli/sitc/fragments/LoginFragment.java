@@ -15,10 +15,9 @@ import java.util.List;
 
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.activities.CarpoolActivity_;
-import nu.mackli.sitc.activities.CarpoolSiteActivity_;
-import nu.mackli.sitc.activities.CarpoolSiteOverviewActivity_;
 import nu.mackli.sitc.activities.LoginActivity;
 import nu.mackli.sitc.activities.RegistrationActivity_;
+import nu.mackli.sitc.fragments.base.BaseFragment;
 
 import static nu.mackli.sitc.activities.RegistrationActivity.WITH_EMAIL;
 import static nu.mackli.sitc.activities.RegistrationActivity.WITH_FACEBOOK;

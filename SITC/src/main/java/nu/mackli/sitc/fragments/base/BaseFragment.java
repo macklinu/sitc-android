@@ -1,4 +1,4 @@
-package nu.mackli.sitc.fragments;
+package nu.mackli.sitc.fragments.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;

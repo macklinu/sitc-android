@@ -21,13 +21,16 @@ import org.androidannotations.annotations.ViewById;
 import java.util.Calendar;
 
 import nu.mackli.sitc.R;
+import nu.mackli.sitc.fragments.base.ContractFragment;
+import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
 import nu.mackli.sitc.models.User;
 
 /**
  * Created by macklinu on 1/26/14.
  */
 @EFragment(R.layout.fragment_registration_info)
-public class RegistrationInfoFragment extends BaseFragment {
+public class RegistrationInfoFragment extends ContractFragment<RegistrationFragmentContract> {
+    public static final String FRAGMENT_TAG = "registrationFragment";
 
     @ViewById EditText firstNameInput;
     @ViewById EditText lastNameInput;
@@ -96,7 +99,7 @@ public class RegistrationInfoFragment extends BaseFragment {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    // move on
+                    getContract().onRegistrationFragmentNext(RegistrationInfoFragment.this);
                 } else {
                     Toast.makeText(getActivity(), "User save error", Toast.LENGTH_SHORT).show();
                 }
@@ -114,5 +117,4 @@ public class RegistrationInfoFragment extends BaseFragment {
             isInAfterTextChange = false;
         }
     }
-
 }
