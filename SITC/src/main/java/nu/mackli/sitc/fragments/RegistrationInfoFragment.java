@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
 
 import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
@@ -95,11 +96,11 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
         user.put(User.PHONE, phoneInput.getText().toString());
         user.put(User.DATE_OF_BIRTH, dobInput.getText().toString());
 
-        user.saveInBackground(new SaveCallback() {
+        user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    getContract().onRegistrationFragmentNext(RegistrationInfoFragment.this);
+                    getContract().onRegistrationFragmentNext(FRAGMENT_TAG);
                 } else {
                     Toast.makeText(getActivity(), "User save error", Toast.LENGTH_SHORT).show();
                 }

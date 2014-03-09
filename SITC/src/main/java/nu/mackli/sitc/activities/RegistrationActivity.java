@@ -63,8 +63,8 @@ public class RegistrationActivity extends BaseActivity implements RegistrationFr
     }
 
     @Override
-    public void onRegistrationFragmentNext(Fragment fragment) {
-        if (fragment.getTag().equalsIgnoreCase(RegistrationInfoFragment.FRAGMENT_TAG)) {
+    public void onRegistrationFragmentNext(String fragmentTag) {
+        if (fragmentTag.equalsIgnoreCase(RegistrationInfoFragment.FRAGMENT_TAG)) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.registrationFrame, new RegistrationRoleFragment_(), RegistrationRoleFragment.FRAGMENT_TAG)
@@ -73,7 +73,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationFr
     }
 
     @Override
-    public void onRegistrationFragmentPrevious(Fragment fragment) {
+    public void onRegistrationFragmentPrevious(String fragmentTag) {
 
     }
 }

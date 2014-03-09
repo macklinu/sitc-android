@@ -1,5 +1,7 @@
 package nu.mackli.sitc.fragments;
 
+import android.util.Log;
+
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
@@ -32,6 +34,7 @@ public class LoginFragment extends BaseFragment {
 
     @AfterViews
     public void onAfterViews() {
+
     }
 
     /**
@@ -48,7 +51,8 @@ public class LoginFragment extends BaseFragment {
 
     @Click
     public void facebookButton() {
-        logInWithFacebook();
+        // logInWithFacebook();
+        ParseUser.logOut();
     }
 
     @Click
