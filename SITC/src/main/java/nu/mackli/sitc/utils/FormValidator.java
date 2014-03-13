@@ -16,7 +16,8 @@ public class FormValidator {
     }
 
     public FormValidator name(TextView textView) {
-        if (textView.getText() != null) {
+        String text = textView.getText().toString();
+        if (text.length() > 0) {
             checks.add(true);
         } else {
             checks.add(false);
@@ -25,8 +26,10 @@ public class FormValidator {
     }
 
     public boolean validate() {
-        for (Boolean b : checks) {
-            if (!b) return false;
+        for (boolean b : checks) {
+            if (b == Boolean.FALSE) {
+                return false;
+            }
         }
         return true;
     }

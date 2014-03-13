@@ -25,11 +25,20 @@ public class FormValidatorTest {
     }
 
     @Test
-    public void nullNameInputIsInvalid() throws Exception {
-        editText.setText(null);
+    public void nameMustBeGreaterThanZero() throws Exception {
+        editText.setText("Dave");
         boolean isValid = new FormValidator()
                 .name(editText)
                 .validate();
         Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void nameCannotBeLengthZero() throws Exception {
+        editText.setText("");
+        boolean isValid = new FormValidator()
+                .name(editText)
+                .validate();
+        Assert.assertFalse(isValid);
     }
 }
