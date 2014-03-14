@@ -42,15 +42,25 @@
     </string-array>
 
     <!-- hints -->
-    <string name="firstNameHint">First Name</string>
-    <string name="lastNameHint">Last Name</string>
-    <string name="usernameHint">Username</string>
-    <string name="emailHint">Email</string>
-    <string name="passwordHint">Password</string>
+    <string name="firstNameHint">First Name (required)</string>
+    <string name="lastNameHint">Last Name (required)</string>
+    <string name="usernameHint">Username (required)</string>
+    <string name="emailHint">Email (required)</string>
+    <string name="passwordHint">Password (required)</string>
 
     <!-- form validation -->
     <string name="thatShitEmpty">Yo, that shit empty. Fix it.</string>
-    <string name="dateOfBirth">Date of birth</string>
-    <string name="phoneNumber">Phone number</string>
+    <string name="dateOfBirth">Date of birth (required)</string>
+    <string name="phoneNumber">Phone number (required)</string>
     <string name="next">Next</string>
+    <string name="error_first_name">First name is required</string>
+    <string name="error_last_name">Last name is required</string>
+    <string name="error_date_of_birth">Birthday is required</string>
+    <string name="error_phone">Phone number is required</string>
+    <string name="error_phone_valid">Not a valid phone number</string>
+    <string name="error_username">Username is required</string>
+    <string name="error_email">Email is required</string>
+    <string name="error_password">Password is required</string>
+    <string name="error_password_length">Password must be at least 6 characters long</string>
+    <string name="error_email_valid">Not a valid email address</string>
 </resources>
