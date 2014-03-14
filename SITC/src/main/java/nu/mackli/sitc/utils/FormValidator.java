@@ -1,5 +1,6 @@
 package nu.mackli.sitc.utils;
 
+import android.util.Patterns;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,6 +24,22 @@ public class FormValidator {
             checks.add(false);
         }
         return this;
+    }
+
+    public FormValidator email(TextView textView) {
+        String text = textView.getText().toString();
+        if (text != null) {
+            if (Patterns.EMAIL_ADDRESS.matcher(text).matches()) {
+                checks.add(true);
+                return this;
+            } else {
+                checks.add(false);
+                return this;
+            }
+        } else {
+            checks.add(false);
+            return this;
+        }
     }
 
     public boolean validate() {
