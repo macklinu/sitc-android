@@ -1,8 +1,6 @@
 package nu.mackli.sitc.fragments;
 
-import android.app.ProgressDialog;
 import android.util.Log;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 

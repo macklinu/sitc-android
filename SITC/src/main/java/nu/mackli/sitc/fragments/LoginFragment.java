@@ -1,7 +1,5 @@
 package nu.mackli.sitc.fragments;
 
-import android.util.Log;
-
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;

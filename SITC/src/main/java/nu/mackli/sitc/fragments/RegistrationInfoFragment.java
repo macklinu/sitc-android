@@ -1,13 +1,10 @@
 package nu.mackli.sitc.fragments;
 
-import android.app.DatePickerDialog;
 import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
 import android.view.View;
 import android.view.animation.Animation;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.devspark.appmsg.AppMsg;
 import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
@@ -15,9 +12,6 @@ import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
 import com.mobsandgeeks.saripaar.Rule;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Required;
-import com.mobsandgeeks.saripaar.annotation.TextRule;
-import com.parse.ParseException;
-import com.parse.SignUpCallback;
 
 import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
@@ -27,14 +21,9 @@ import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.AnimationRes;
 
-import java.util.Calendar;
-
 import nu.mackli.sitc.R;
-import nu.mackli.sitc.dialogs.SitcProgressDialog;
 import nu.mackli.sitc.fragments.base.ContractFragment;
 import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
-import nu.mackli.sitc.models.User;
-import nu.mackli.sitc.utils.FormValidator;
 
 /**
  * Created by macklinu on 1/26/14.
