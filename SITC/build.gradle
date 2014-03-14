@@ -94,6 +94,8 @@ dependencies {
 
     compile 'com.github.johnkil.android-appmsg:appmsg:1.2.0'
 
+    compile 'com.mobsandgeeks:android-saripaar:1.0.2'
+
     // testing
     androidTestCompile 'org.robolectric:robolectric:2.2'
     androidTestCompile 'junit:junit:4.11'

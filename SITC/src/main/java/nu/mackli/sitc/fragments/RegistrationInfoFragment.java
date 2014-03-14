@@ -3,12 +3,19 @@ package nu.mackli.sitc.fragments;
 import android.app.DatePickerDialog;
 import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
+import android.view.View;
+import android.view.animation.Animation;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.devspark.appmsg.AppMsg;
 import com.doomonafireball.betterpickers.datepicker.DatePickerBuilder;
 import com.doomonafireball.betterpickers.datepicker.DatePickerDialogFragment;
+import com.mobsandgeeks.saripaar.Rule;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Required;
+import com.mobsandgeeks.saripaar.annotation.TextRule;
 import com.parse.ParseException;
 import com.parse.SignUpCallback;
 
@@ -18,6 +25,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.AnimationRes;
 
 import java.util.Calendar;
 
@@ -26,30 +34,57 @@ import nu.mackli.sitc.dialogs.SitcProgressDialog;
 import nu.mackli.sitc.fragments.base.ContractFragment;
 import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
 import nu.mackli.sitc.models.User;
+import nu.mackli.sitc.utils.FormValidator;
 
 /**
  * Created by macklinu on 1/26/14.
  */
 @EFragment(R.layout.fragment_registration_info)
-public class RegistrationInfoFragment extends ContractFragment<RegistrationFragmentContract> implements DatePickerDialogFragment.DatePickerDialogHandler {
+public class RegistrationInfoFragment extends ContractFragment<RegistrationFragmentContract>
+        implements DatePickerDialogFragment.DatePickerDialogHandler, Validator.ValidationListener {
     public static final String FRAGMENT_TAG = "registrationFragment";
 
-    @ViewById EditText firstNameInput;
-    @ViewById EditText lastNameInput;
-    @ViewById EditText dobInput;
-    @ViewById EditText phoneInput;
-    @ViewById EditText usernameInput;
-    @ViewById EditText emailInput;
-    @ViewById EditText passwordInput;
+    @Required(order = 0, message = "Give me a fucking first name")
+    @ViewById
+    EditText firstNameInput;
+
+    @Required(order = 1, message = "Give me a fucking last name")
+    @ViewById
+    EditText lastNameInput;
+
+    @Required(order = 2, message = "Give me a fucking date of birth")
+    @ViewById
+    EditText dobInput;
+
+    @ViewById
+    EditText phoneInput;
+
+    @ViewById
+    EditText usernameInput;
+
+    @Required(order = 3, message = "Give me a valid fucking email")
+    @ViewById
+    EditText emailInput;
+
+    @ViewById
+    EditText passwordInput;
+
+    @AnimationRes
+    Animation shake;
+
 
     @FragmentArg String firstName;
     @FragmentArg String lastName;
     @FragmentArg String email;
 
     private boolean isInAfterTextChange;
+    private Validator validator;
 
     @AfterViews
     public void onAfterViews() {
+        validator = new Validator(this);
+        validator.setValidationListener(this);
+
         firstNameInput.setText(firstName);
         lastNameInput.setText(lastName);
         emailInput.setText(email);
@@ -83,6 +118,8 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
 
     @Click
     public void nextButton() {
+        validator.validate();
+        /*
         User user = new User();
         user.setUsername(usernameInput.getText().toString());
         user.setPassword(passwordInput.getText().toString());
@@ -103,6 +140,7 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
                 }
             }
         });
+        */
     }
 
     @AfterTextChange
@@ -119,5 +157,20 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
     @Override
     public void onDialogDateSet(int reference, int y, int m, int d) {
         setDateFromDatePicker(y, m, d);
+    }
+
+    @Override
+    public void onValidationSucceeded() {
+
+    }
+
+    @Override
+    public void onValidationFailed(View failedView, Rule<?> failedRule) {
+        if (failedView instanceof EditText) {
+            EditText editText = (EditText) failedView;
+            editText.requestFocus();
+            editText.startAnimation(shake);
+        }
+        AppMsg.makeText(getActivity(), failedRule.getFailureMessage(), AppMsg.STYLE_ALERT).show();
     }
 }

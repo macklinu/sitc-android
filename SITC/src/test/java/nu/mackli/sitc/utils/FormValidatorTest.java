@@ -2,6 +2,9 @@ package nu.mackli.sitc.utils;
 
 import android.widget.EditText;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,10 +72,28 @@ public class FormValidatorTest {
     @Test
     public void emailCannotBeBlank() throws Exception {
         editText.setText("");
-
         boolean isValid = new FormValidator()
                 .email(editText)
                 .validate();
         Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void emailCannotBeNull() throws Exception {
+        editText.setText(null);
+        boolean isValid = new FormValidator()
+                .email(editText)
+                .validate();
+        Assert.assertFalse(isValid);
+        Assert.assertEquals("Enter a valid email address", editText.getError().toString());
+    }
+
+    @Test
+    public void emailValidatesStandardEmail() throws Exception {
+        editText.setText("john@gmail.com");
+        boolean isValid = new FormValidator()
+                .email(editText)
+                .validate();
+        Assert.assertTrue(isValid);
     }
 }

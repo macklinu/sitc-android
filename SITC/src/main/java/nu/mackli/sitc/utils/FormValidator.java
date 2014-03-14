@@ -34,6 +34,7 @@ public class FormValidator {
                 return this;
             } else {
                 checks.add(false);
+                textView.setError("Enter a valid email address");
                 return this;
             }
         } else {
