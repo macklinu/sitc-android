@@ -1,11 +1,6 @@
 package nu.mackli.sitc.activities;
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.support.v4.app.FragmentTransaction;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.facebook.model.GraphUser;
@@ -15,10 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.shadows.ShadowActivity;
-import org.robolectric.shadows.ShadowAlertDialog;
-import org.robolectric.shadows.ShadowDatePickerDialog;
-import org.robolectric.shadows.ShadowDialog;
 
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.SitcTestRunner;
@@ -26,7 +17,6 @@ import nu.mackli.sitc.fragments.RegistrationInfoFragment;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment_;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * Created by macklinu on 2/16/14.
@@ -104,16 +94,6 @@ public class RegistrationActivityTest {
         Assert.assertEquals(email, "bob.smith@gmail.com");
         Assert.assertEquals(dob, "");
         Assert.assertEquals(phone, "");
-    }
-
-    @Test
-    public void clickingDobInputShouldShowDatePicker() throws Exception {
-        EditText dobInput = ((EditText) Robolectric.shadowOf(registrationActivity).findViewById(R.id.dobInput));
-        dobInput.performClick();
-        Dialog dialog = ShadowDialog.getLatestDialog();
-        Assert.assertTrue(dialog.isShowing());
-        ShadowDialog shadowDialog = Robolectric.shadowOf(ShadowDialog.getLatestDialog());
-        Assert.assertEquals(shadowDialog.getTitle(), "Pick your birthday");
     }
 
     @Test

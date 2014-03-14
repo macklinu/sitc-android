@@ -23,14 +23,14 @@
         android:id="@+id/firstNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/firstNameHint"/>
+        android:hint="@string/first_name_hint"/>
 
     <EditText
         style="@style/AppTheme.EditText"
         android:id="@+id/lastNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/lastNameHint"/>
+        android:hint="@string/last_name_hint"/>
 
     <EditText
         style="@style/AppTheme.EditText"
@@ -56,14 +56,14 @@
         android:id="@+id/usernameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/usernameHint"/>
+        android:hint="@string/username_hint"/>
 
     <EditText
         style="@style/AppTheme.EditText"
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/emailHint"/>
+        android:hint="@string/email_hint"/>
 
     <EditText
         style="@style/AppTheme.EditText"
@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="@string/passwordHint"/>
+        android:hint="@string/password_hint"/>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -11,8 +11,6 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 
-import java.util.List;
-
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.dialogs.RoleAssignDialog;
 import nu.mackli.sitc.fragments.RegistrationInfoFragment;
