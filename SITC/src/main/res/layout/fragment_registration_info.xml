@@ -58,11 +58,12 @@
         android:layout_height="wrap_content"
         android:hint="@string/username_hint"/>
 
-    <EditText
+    <AutoCompleteTextView
         style="@style/AppTheme.EditText"
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:selectAllOnFocus="true"
         android:hint="@string/email_hint"/>
 
     <EditText

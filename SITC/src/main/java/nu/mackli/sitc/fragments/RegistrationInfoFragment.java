@@ -1,9 +1,15 @@
 package nu.mackli.sitc.fragments;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
+import android.util.Patterns;
 import android.view.View;
 import android.view.animation.Animation;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -23,8 +29,14 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.SystemService;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.AnimationRes;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.fragments.base.ContractFragment;
@@ -38,6 +50,9 @@ import nu.mackli.sitc.utils.FormRegex;
 public class RegistrationInfoFragment extends ContractFragment<RegistrationFragmentContract>
         implements DatePickerDialogFragment.DatePickerDialogHandler, Validator.ValidationListener {
     public static final String FRAGMENT_TAG = "registrationFragment";
+
+    @SystemService
+    AccountManager accountManager;
 
     @Required(order = 0, messageResId = R.string.error_first_name)
     @ViewById
@@ -63,7 +78,7 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
     @Required(order = 6, messageResId = R.string.error_email)
     @Email(order = 7, messageResId = R.string.error_email_valid)
     @ViewById
-    EditText emailInput;
+    AutoCompleteTextView emailInput;
 
     @Password(order = 8, messageResId = R.string.error_password)
     @TextRule(order = 9, minLength = 6, messageResId = R.string.error_password_length)
@@ -93,12 +108,11 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
     public void onAfterViews() {
         validator = new Validator(this);
         validator.setValidationListener(this);
-
+        prepareAutocompleteTextView();
         firstNameInput.setText(firstName);
         lastNameInput.setText(lastName);
         emailInput.setText(email);
     }
-
 
     @Override
     public void onDialogDateSet(int reference, int y, int m, int d) {
@@ -144,7 +158,6 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
         validator.validate();
     }
 
-
     @AfterTextChange
     public void phoneInputAfterTextChanged(Editable text) {
         if (!isInAfterTextChange) {
@@ -160,5 +173,24 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
         String date = String.format("%02d/%02d/%4d", m + 1, d, y);
         dobInput.setText(date);
         phoneInput.requestFocus();
+    }
+
+    private void prepareAutocompleteTextView() {
+        final Account[] accounts = accountManager.getAccounts();
+        final Set<String> emailSet = new HashSet<String>();
+        for (Account account : accounts) {
+            if (Patterns.EMAIL_ADDRESS.matcher(account.name).matches()) {
+                emailSet.add(account.name);
+            }
+        }
+        List<String> emails = new ArrayList<String>(emailSet);
+        emailInput.setAdapter(new ArrayAdapter<String>
+                (getActivity(), android.R.layout.simple_dropdown_item_1line, emails));
+        emailInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                passwordInput.requestFocus();
+            }
+        });
     }
 }
