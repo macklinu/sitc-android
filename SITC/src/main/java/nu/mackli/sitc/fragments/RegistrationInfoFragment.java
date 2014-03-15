@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.util.Patterns;
 import android.view.View;
 import android.view.animation.Animation;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -185,5 +186,11 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
         List<String> emails = new ArrayList<String>(emailSet);
         emailInput.setAdapter(new ArrayAdapter<String>
                 (getActivity(), android.R.layout.simple_dropdown_item_1line, emails));
+        emailInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                passwordInput.requestFocus();
+            }
+        });
     }
 }
