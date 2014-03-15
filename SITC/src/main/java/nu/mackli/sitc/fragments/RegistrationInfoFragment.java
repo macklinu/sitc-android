@@ -4,6 +4,7 @@ import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
 import android.view.View;
 import android.view.animation.Animation;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -63,7 +64,7 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
     @Required(order = 6, messageResId = R.string.error_email)
     @Email(order = 7, messageResId = R.string.error_email_valid)
     @ViewById
-    EditText emailInput;
+    AutoCompleteTextView emailInput;
 
     @Password(order = 8, messageResId = R.string.error_password)
     @TextRule(order = 9, minLength = 6, messageResId = R.string.error_password_length)
