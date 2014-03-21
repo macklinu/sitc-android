@@ -12,6 +12,7 @@ import com.parse.ParseUser;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import nu.mackli.sitc.dialogs.RoleAssignDialog_;
 import nu.mackli.sitc.dialogs.SitcProgressDialog;
 import nu.mackli.sitc.fragments.base.ContractFragment;
 import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
+import nu.mackli.sitc.models.RegistrationUserData;
 
 @EFragment(R.layout.fragment_registration_role)
 public class RegistrationRoleFragment extends ContractFragment<RegistrationFragmentContract> {
@@ -29,11 +31,13 @@ public class RegistrationRoleFragment extends ContractFragment<RegistrationFragm
 
     @ViewById ProgressBar progressBar;
 
+    @FragmentArg
+    RegistrationUserData userData;
+
     @Click
     public void crewButton() {
-        final ParseUser parseUser = ParseUser.getCurrentUser();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("ListCrew");
-        query.whereEqualTo("email", parseUser.getEmail());
+        query.whereEqualTo("email", userData.email);
         final SitcProgressDialog progressDialog = new SitcProgressDialog(getActivity(), "Determining crew member status");
         progressDialog.show();
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -46,7 +50,7 @@ public class RegistrationRoleFragment extends ContractFragment<RegistrationFragm
                     } else {
                         RoleAssignDialog dialog = RoleAssignDialog_
                                 .builder()
-                                .email(parseUser.getEmail())
+                                .email(userData.email)
                                 .build();
                         dialog.show(getActivity().getSupportFragmentManager(),
                                 RoleAssignDialog.FRAGMENT_TAG);
