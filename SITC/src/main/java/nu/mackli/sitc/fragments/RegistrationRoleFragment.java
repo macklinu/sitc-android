@@ -12,6 +12,7 @@ import com.parse.ParseUser;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
@@ -22,12 +23,16 @@ import nu.mackli.sitc.dialogs.RoleAssignDialog_;
 import nu.mackli.sitc.dialogs.SitcProgressDialog;
 import nu.mackli.sitc.fragments.base.ContractFragment;
 import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
+import nu.mackli.sitc.models.RegistrationUserData;
 
 @EFragment(R.layout.fragment_registration_role)
 public class RegistrationRoleFragment extends ContractFragment<RegistrationFragmentContract> {
     public static final String FRAGMENT_TAG = "registrationRoleFragment";
 
     @ViewById ProgressBar progressBar;
+
+    @FragmentArg
+    RegistrationUserData userData;
 
     @Click
     public void crewButton() {

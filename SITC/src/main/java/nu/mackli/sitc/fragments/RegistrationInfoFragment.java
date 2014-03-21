@@ -41,6 +41,7 @@ import java.util.Set;
 import nu.mackli.sitc.R;
 import nu.mackli.sitc.fragments.base.ContractFragment;
 import nu.mackli.sitc.interfaces.RegistrationFragmentContract;
+import nu.mackli.sitc.models.RegistrationUserData;
 import nu.mackli.sitc.utils.FormRegex;
 
 /**
@@ -121,7 +122,9 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
 
     @Override
     public void onValidationSucceeded() {
-        RegistrationRoleFragment fragment = new RegistrationRoleFragment_();
+        RegistrationRoleFragment fragment = RegistrationRoleFragment_.builder()
+                .userData(buildUserData())
+                .build();
         getActivity()
                 .getSupportFragmentManager()
                 .beginTransaction()
@@ -193,5 +196,18 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
                 passwordInput.requestFocus();
             }
         });
+    }
+
+    private RegistrationUserData buildUserData() {
+        RegistrationUserData userData = new RegistrationUserData();
+        userData.firstName = firstNameInput.getText().toString();
+        userData.lastName = lastNameInput.getText().toString();
+        userData.dateOfBirth = dobInput.getText().toString();
+        userData.phoneNumber = phoneInput.getText().toString();
+        userData.username = usernameInput.getText().toString();
+        userData.email = emailInput.getText().toString();
+        userData.password = passwordInput.getText().toString();
+
+        return userData;
     }
 }
