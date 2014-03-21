@@ -36,9 +36,8 @@ public class RegistrationRoleFragment extends ContractFragment<RegistrationFragm
 
     @Click
     public void crewButton() {
-        final ParseUser parseUser = ParseUser.getCurrentUser();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("ListCrew");
-        query.whereEqualTo("email", parseUser.getEmail());
+        query.whereEqualTo("email", userData.email);
         final SitcProgressDialog progressDialog = new SitcProgressDialog(getActivity(), "Determining crew member status");
         progressDialog.show();
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -51,7 +50,7 @@ public class RegistrationRoleFragment extends ContractFragment<RegistrationFragm
                     } else {
                         RoleAssignDialog dialog = RoleAssignDialog_
                                 .builder()
-                                .email(parseUser.getEmail())
+                                .email(userData.email)
                                 .build();
                         dialog.show(getActivity().getSupportFragmentManager(),
                                 RoleAssignDialog.FRAGMENT_TAG);
