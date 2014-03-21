@@ -121,11 +121,12 @@ public class RegistrationInfoFragment extends ContractFragment<RegistrationFragm
 
     @Override
     public void onValidationSucceeded() {
-        if (msg != null && msg.isShowing()) {
-            msg.cancel();
-        }
-        msg = AppMsg.makeText(getActivity(), "You did it!", AppMsg.STYLE_INFO);
-        msg.show();
+        RegistrationRoleFragment fragment = new RegistrationRoleFragment_();
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.registrationFrame, fragment)
+                .commit();
     }
 
     @Override
